@@ -5,5 +5,11 @@ block content
     form(action='addpost', method='POST')
         input(type='text', name='title')
         br
-        textarea(name='body', style='white-space: pre-wrap;')
+        textarea(name='body', oninput='run()', id="sourceTA", rows="10", cols="82" style='white-space: pre-wrap;')
         input(type='submit', value='Add Post')
+    
+    button() Convert
+    div(id="targetDiv")
+    script(src='/bower_components/showdown/dist/showdown.min.js')
+    script
+        include updateMarkdownView.js

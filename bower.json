@@ -1,0 +1,22 @@
+{
+  "name": "newwebsite",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "James Studd <james.studd@live.co.uk>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/JamesStudd/NodeBlog",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "showdown": "^1.9.0",
+    "jquery": "^3.3.1",
+    "bootstrap": "^4.3.1"
+  }
+}

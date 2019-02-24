@@ -9,6 +9,7 @@ let blog = require('./routes/blog');
 app.set('view engine', 'pug');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
+app.use(express.static('public'));
 
 app.use('/blog', blog);
 

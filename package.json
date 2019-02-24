@@ -5,12 +5,14 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm i && bower install",
     "dev": "nodemon app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "bower": "^1.8.8",
     "express": "^4.16.4",
     "mongoose": "^5.4.15",
     "nodemon": "^1.18.10",
