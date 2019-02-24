@@ -1,0 +1,12 @@
+html
+  head
+  body
+    h1 Node Blog
+
+    each post in posts
+        article
+            p !{post.parsedHtml}
+
+    form(action='addpost', method='POST')
+      textarea(name='body', style='white-space: pre-wrap;')
+      input(type='submit', value='Add Post')
