@@ -1,0 +1,8 @@
+extends ../_layout.pug
+block content
+    h1 Node Blog
+
+    each post in posts
+        article
+            a(href='blog/'+post.title)= post.title
+            | - Written #{post.date}

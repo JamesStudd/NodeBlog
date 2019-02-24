@@ -17,7 +17,7 @@ if (mongoose.connection && mongoose.connection.readyState == 1 || mongoose.conne
         },
         date: {
             type: Date,
-            required: true
+            default: Date.now
         }
     });
 

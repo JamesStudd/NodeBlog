@@ -1,0 +1,9 @@
+extends ../_layout.pug
+block content
+    h1 Node Blog
+
+    form(action='addpost', method='POST')
+        input(type='text', name='title')
+        br
+        textarea(name='body', style='white-space: pre-wrap;')
+        input(type='submit', value='Add Post')

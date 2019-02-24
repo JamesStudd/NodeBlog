@@ -8,15 +8,14 @@ const mongoose = require('mongoose');
 
 router.get('/', (req, res) => {
     Post.find({}, (err, posts) => {
-        res.render('index', {
-            posts,
-            test: 'h2 Hello World'
+        res.render('blog/listBlogPosts', {
+            posts
         });
     })
 });
 
 router.get('/addpost', (req, res) => {
-    res.send('Blog add post');
+    res.render('blog/addNewPost');
 })
 
 router.post('/addpost', (req, res) => {
@@ -31,5 +30,21 @@ router.post('/addpost', (req, res) => {
         res.status(400).send('Unable to save data');
     });
 });
+
+router.get('/:title', (req, res) => {
+    Post.findOne({title: req.params.title}, (err, post) => {
+        if (err) {
+            return res.status(500).send();
+        }
+
+        if (post) {
+            res.render('blog/singlePost', {
+                post
+            });
+        } else {
+            res.status(404).send();
+        }
+    })
+})
 
 module.exports = router;
