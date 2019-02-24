@@ -1,15 +1,27 @@
 extends ../_layout.pug
 block content
-    h1 Node Blog
+    h2 Add new post
 
     form(action='addpost', method='POST')
-        input(type='text', name='title')
-        br
-        textarea(name='body', oninput='run()', id="sourceTA", rows="10", cols="82" style='white-space: pre-wrap;')
-        input(type='submit', value='Add Post')
-    
-    button() Convert
-    div(id="targetDiv")
+        .container
+            .row
+                .col-auto
+                    Label Title
+                    p(style='color:red;display:inline') *
+                    input.form-control(type='text', name='title')
+            .row
+                .col-auto
+                    Label Body
+                    p(style='color:red;display:inline') *
+            .row
+                .col-auto
+                    textarea.form-control(name='body', oninput='run()', id="sourceTA", rows="10", cols="82" style='white-space: pre-wrap;')
+            br
+            input.btn.btn-primary(type='submit', value='Add Post')
+
+    br
+    hr
+    div(id="targetDiv", style='border: 1px solid black;')
     script(src='/bower_components/showdown/dist/showdown.min.js')
     script
         include updateMarkdownView.js

@@ -4,7 +4,6 @@ const showdown = require('showdown');
 const converter = new showdown.Converter();
 
 const Post = require('./../database/models/postModel');
-const mongoose = require('mongoose');
 
 router.get('/', (req, res) => {
     Post.find({}, (err, posts) => {
@@ -19,16 +18,28 @@ router.get('/addpost', (req, res) => {
 })
 
 router.post('/addpost', (req, res) => {
-    let postData = new Post(req.body);
+    
+    req.checkBody('body', 'Body is required').notEmpty();
+    req.checkBody('title', 'Title is required').notEmpty();
+    let errors = req.validationErrors();
+    if (errors) {
+        for (let i = 0; i < errors.length; i++) {
+            req.flash('danger', errors[i].msg);
+        }
+        res.render('blog/addNewPost');
+    } else {
+        let postData = new Post(req.body);
 
-    let html = converter.makeHtml(postData.body);
-    postData.parsedHtml = html;
-
-    postData.save().then(result => {
-        res.redirect('/');
-    }).catch(err => {
-        res.status(400).send('Unable to save data');
-    });
+        let html = converter.makeHtml(postData.body);
+        postData.parsedHtml = html;
+    
+        postData.save().then(result => {
+            req.flash('success', 'Post added');
+            res.redirect('/');
+        }).catch(err => {
+            res.status(400).send('Unable to save data');
+        });
+    }
 });
 
 router.get('/:title', (req, res) => {
