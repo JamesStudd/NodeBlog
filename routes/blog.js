@@ -17,17 +17,26 @@ router.get('/addpost', (req, res) => {
     res.render('blog/addNewPost');
 })
 
-router.post('/addpost', (req, res) => {
-    
+router.post('/addpost', (req, res) => {   
     req.checkBody('body', 'Body is required').notEmpty();
     req.checkBody('title', 'Title is required').notEmpty();
+
     let errors = req.validationErrors();
+
     if (errors) {
         for (let i = 0; i < errors.length; i++) {
             req.flash('danger', errors[i].msg);
         }
         res.render('blog/addNewPost');
     } else {
+        if (req.body.categories) {
+            req.body.categories = req.body.categories.split(',');
+        }
+
+        if (req.body.keywords) {
+            req.body.keywords = req.body.keywords.split(',');
+        }
+
         let postData = new Post(req.body);
 
         let html = converter.makeHtml(postData.body);
@@ -39,6 +48,31 @@ router.post('/addpost', (req, res) => {
         }).catch(err => {
             res.status(400).send('Unable to save data');
         });
+    }
+});
+
+router.get('/search', (req, res) => {
+    if (!req.query.query || req.query == '')
+        res.render('blog/listBlogPosts');
+    else {
+        req.query.query = req.query.query.toLowerCase();
+        Post.find({$or: [   {title: {"$regex": req.query.query, "$options": "i"}}, 
+                            {categories: req.query.query}, 
+                            {keywords: req.query.query} ]}, 
+                            (err, posts) => {
+            if (err) {
+                console.log(err);
+                req.flash('danger', 'Error when searching posts');
+                res.redirect('/');
+            }
+
+            if (posts) {
+                res.render('blog/listBlogPosts', { posts });
+            } else {
+                req.flash('danger', `No posts found with query ${req.query.query}`);
+                res.redirect('/');
+            }
+        })
     }
 });
 

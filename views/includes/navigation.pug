@@ -16,6 +16,6 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
                     .dropdown-divider
                     a.dropdown-item(href='#') Project One
                     a.dropdown-item(href='#') Project Two
-        form.form-inline.my-2.my-lg-0
-            input.form-control.mr-sm-2(type='search', placeholder='Search Blogs/Projects', aria-label='Search')
+        form.form-inline.my-2.my-lg-0(action='/blog/search', method='GET')
+            input.form-control.mr-sm-2(type='search', placeholder='Search Blog Posts', aria-label='Search', name='query', title='Enter a title, keyword or category to search for', alt='Enter a title, keyword or category to search for')
             button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search

@@ -1,5 +1,13 @@
 extends ../_layout.pug
 block content
-    h1 Node Blog
     article
+        if post.categories
+            p(style='display:inline;margin-right:5px;') Categories:
+            each category in post.categories
+                a(href='search?query='+category, style='margin-right:5px;')= category
+            br
+        if post.keywords
+            p(style='display:inline;margin-right:5px;') Keywords:
+            each keyword in post.keywords
+                a(href='search?query='+keyword, style='margin-right:5px;')= keyword
         p !{post.parsedHtml}
