@@ -1,0 +1,18 @@
+extends _layout.pug
+block content
+    h2 Login
+
+    form(action='login', method='POST')
+        .container
+            .row
+                .col-sm-7
+                    Label Username
+                    p(style='color:red;display:inline') *
+                    input.form-control(type='text', name='username')
+            .row
+                .col-sm-7
+                    Label Password
+                    p(style='color:red;display:inline') *
+                    input.form-control(type='password', name='password')
+            br
+            input.btn.btn-primary(type='submit', value='Login')

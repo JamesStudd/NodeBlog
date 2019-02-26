@@ -6,8 +6,9 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
         ul.navbar-nav.mr-auto
             li.nav-item
                 a.nav-link(href='/blog') Blog
-            li.nav-item
-                a.nav-link(href='/blog/addpost') Add Post
+            if user
+                li.nav-item
+                    a.nav-link(href='/blog/addpost') Add Post
             li.nav-item.dropdown
                 a#navbarDropdown.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
                     | Projects
