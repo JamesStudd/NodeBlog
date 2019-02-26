@@ -1,0 +1,9 @@
+extends ../_layout.pug
+block content
+    h1 Node Blog
+
+    if projects
+        each project in projects
+            article
+                a(href='/project/'+project.title)= project.title
+                | - Written #{project.date}

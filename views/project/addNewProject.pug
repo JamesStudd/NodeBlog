@@ -1,8 +1,8 @@
 extends ../_layout.pug
 block content
-    h2 Add New Post
+    h2 Add New Project
 
-    form(action='addpost', method='POST')
+    form(action='addproject', method='POST')
         .container
             .row
                 .col-sm-7
@@ -19,11 +19,19 @@ block content
                     input.form-control(type='text', name='keywords')
             .row
                 .col-sm-7
-                    Label Body
+                    Label Short Description
                     p(style='color:red;display:inline') *
+                    textarea.form-control(name='shortDescription', rows="2", cols="82")
             .row
                 .col-sm-7
-                    textarea.form-control(name='body', oninput='run()', id="sourceTA", rows="10", cols="82" style='white-space: pre-wrap;')
+                    Label Long Description
+                    p(style='color:red;display:inline') *
+                    textarea.form-control(name='longDescription', oninput='run()', id="sourceTA", rows="10", cols="82" style='white-space: pre-wrap;')
+            .row
+                .col-sm-7
+                    Label Image
+                    p(style='color:red;display:inline') *
+                    input.form-control(type='text', name='image')
             br
             input.btn.btn-primary(type='submit', value='Add Post')
 

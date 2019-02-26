@@ -9,11 +9,13 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
             if user
                 li.nav-item
                     a.nav-link(href='/blog/addpost') Add Post
+            li.nav-item
+                a.nav-link(href='/projects/addproject') Add Project
             li.nav-item.dropdown
                 a#navbarDropdown.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
                     | Projects
                 .dropdown-menu(aria-labelledby='navbarDropdown')
-                    a.dropdown-item(href='#') All Projects
+                    a.dropdown-item(href='/projects') All Projects
                     .dropdown-divider
                     a.dropdown-item(href='#') Project One
                     a.dropdown-item(href='#') Project Two

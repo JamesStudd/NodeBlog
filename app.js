@@ -12,6 +12,7 @@ const session = require('express-session');
 const port = process.env.PORT || 3000;
 
 let blog = require('./routes/blog');
+let projects = require('./routes/projects');
 
 app.set('view engine', 'pug');
 app.use(bodyParser.json());
@@ -61,6 +62,7 @@ app.get('*', (req, res, next) => {
 });
 
 app.use('/blog', blog);
+app.use('/projects', projects);
 
 app.get('/', (req, res) => {
     res.render('home');
