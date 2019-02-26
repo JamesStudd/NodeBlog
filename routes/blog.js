@@ -5,6 +5,15 @@ const converter = new showdown.Converter();
 
 const Post = require('./../database/models/postModel');
 
+function ensureAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next();
+    } else {
+        req.flash('danger', 'Unauthorized');
+        res.redirect('/');
+    }
+}
+
 router.get('/', (req, res) => {
     Post.find({}, (err, posts) => {
         res.render('blog/listBlogPosts', {
@@ -13,7 +22,7 @@ router.get('/', (req, res) => {
     })
 });
 
-router.get('/addpost', (req, res) => {
+router.get('/addpost', ensureAuthenticated, (req, res) => {
     res.render('blog/addNewPost');
 })
 
