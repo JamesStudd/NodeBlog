@@ -1,6 +1,8 @@
+require('./config/databaseConfig');
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const bcrypt = require('bcryptjs');
 
 const expressValidator = require('express-validator');
 const session = require('express-session');
@@ -8,6 +10,7 @@ const session = require('express-session');
 const port = process.env.PORT || 3000;
 
 let blog = require('./routes/blog');
+const User = require('./database/models/userModel');
 
 app.set('view engine', 'pug');
 app.use(bodyParser.json());
@@ -51,7 +54,7 @@ app.use('/blog', blog);
 
 app.get('/', (req, res) => {
     res.render('home');
-})
+});
 
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`);
