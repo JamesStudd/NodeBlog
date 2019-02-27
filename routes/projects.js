@@ -52,7 +52,7 @@ router.post('/addproject', (req, res) => {
         let projectData = new Project(req.body);
 
         let html = converter.makeHtml(projectData.longDescription);
-        projectData.parsedLongDescription = html;
+        projectData.parsedHtml = html;
 
         projectData.save().then(result => {
             req.flash('success', 'Project added');
@@ -71,8 +71,8 @@ router.get('/:title', (req, res) => {
         }
 
         if (project) {
-            res.render('project/singleProject', {
-                project
+            res.render('singleDocView', {
+                document: project
             });
         } else {
             res.status(404).send();

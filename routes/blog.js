@@ -67,8 +67,8 @@ router.get('/:title', (req, res) => {
         }
 
         if (post) {
-            res.render('blog/singlePost', {
-                post
+            res.render('singleDocView', {
+                document: post
             });
         } else {
             res.status(404).send();

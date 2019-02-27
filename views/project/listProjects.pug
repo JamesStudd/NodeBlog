@@ -41,9 +41,9 @@ block content
         .row.content.justify-content-md-center
             each project in projects
                 .col-auto.project
-                    a(href='/project/'+project.title, alt=project.title)
+                    a(href='/projects/'+project.title, alt=project.title)
                         img.center-img(src=project.image, alt=project.title)
-                    a(href='/project/'+project.title)
+                    a(href='/projects/'+project.title)
                         p.center-text #{project.title}
                     p.date #{moment(project.date).format('DD/MM/YYYY')}
                     hr.seperator

@@ -1,13 +1,13 @@
-extends ../_layout.pug
+extends _layout.pug
 block content
     article
-        if post.categories
+        if document.categories && document.categories.length > 0 && document.categories[0] != ""
             p(style='display:inline;margin-right:5px;') Categories:
-            each category in post.categories
+            each category in document.categories
                 a(href='/search?query='+category+'&blog=\'on\'', style='margin-right:5px;')= category
             br
-        if post.keywords
+        if document.keywords && document.keywords.length > 0 && document.keywords[0] != ""
             p(style='display:inline;margin-right:5px;') Keywords:
-            each keyword in post.keywords
+            each keyword in document.keywords
                 a(href='/search?query='+keyword+'&blog=\'on\'', style='margin-right:5px;')= keyword
-        p !{post.parsedHtml}
+        p !{document.parsedHtml}

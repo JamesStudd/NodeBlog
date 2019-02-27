@@ -23,7 +23,7 @@ if (mongoose.connection && mongoose.connection.readyState == 1 || mongoose.conne
             type: String,
             required: true
         },
-        parsedLongDescription: {
+        parsedHtml: {
             type: String,
             required: false
         },
