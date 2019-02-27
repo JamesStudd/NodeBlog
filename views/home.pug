@@ -1,19 +1,23 @@
 extends _layout.pug
 block content
-    h1.page-title Home Page
-
-    if !user
-        form(id="f1", action="/login", method="POST")
-            input(type='text', name='username', value='dev')
-            input(type='text', name='password', value='dev')
-            input.btn.btn-primary(type='submit', value='Login')
-
-    script.
-        window.addEventListener("keyup", dealWithPress, false);
-        var form = document.getElementById('f1');
-
-        function dealWithPress(e) {
-            if (e.keyCode == 71 && !!form) {
-                form.submit();
-            }
+    style(type='text/css').
+        #home {
+            width: 60%;
+            background: #ecf0f1;
+            margin: auto;
+            text-align: center;
+            border-radius: 5px;
         }
+
+    h1.page-title James Studd
+    div#home
+        p
+            | The blog and portfolio of James Studd
+        if post
+            p
+                | Latest blog post: 
+                a(href=post.link) #{post.title}
+        if project
+            p
+                | Latest project: 
+                a(href=project.link) #{project.title}

@@ -17,6 +17,7 @@ let about = require('./routes/about');
 
 // Project model
 const Project = require('./database/models/projectModel');
+const Post = require('./database/models/postModel');
 
 // Some locals to use in pug templating
 app.locals.titles = {};
@@ -86,8 +87,41 @@ app.use('/search', search);
 app.use('/about', about);
 
 app.get('/', (req, res) => {
-    res.render('home');
+    let promises = [];
+
+    promises.push(findLatest(Post));
+    promises.push(findLatest(Project));
+
+    Promise.all(promises)
+        .then((result) => {
+            res.render('home', {
+                post: result[0],
+                project: result[1]
+            })
+        }).catch((err) => {
+            console.log('error getting latest documents');
+            res.render('home');
+        })
+    Project.findOne({}, {}, {sort: { 'date': -1 } }, (err, project) => {
+        
+    })
 });
+
+const findLatest = (Document) => {
+    return new Promise((resolve, reject) => {
+        Document.findOne({}, {}, {sort: {'date': -1} }, (err, foundDoc) => {
+            if (err) {
+                console.log(err);
+                reject(err);
+            }
+            if (foundDoc) {
+                resolve(foundDoc);
+            } else {
+                reject();
+            }
+        })
+    });
+}
 
 app.get('/login', (req, res) => {
     res.render('login');

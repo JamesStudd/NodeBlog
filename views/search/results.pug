@@ -6,12 +6,12 @@ block content
         h3 Blog Posts
         each post in posts
             article
-                a(href='/blog/'+post.title)= post.title
+                a(href='/blog/'+post.link)= post.title
                 | - #{moment(post.date).format('DD/MM/YYYY')}
 
     if projects && projects.length > 0
         h3 Projects
         each project in projects
             article
-                a(href='/projects/'+project.title)= project.title
+                a(href='/projects/'+project.link)= project.title
                 | - #{moment(project.date).format('DD/MM/YYYY')}
