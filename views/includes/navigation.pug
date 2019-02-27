@@ -17,8 +17,9 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
                 .dropdown-menu(aria-labelledby='navbarDropdown')
                     a.dropdown-item(href='/projects') All Projects
                     .dropdown-divider
-                    a.dropdown-item(href='#') Project One
-                    a.dropdown-item(href='#') Project Two
+                    if titles
+                        each title in titles
+                            a.dropdown-item(href='/projects/'+title) #{title}
 
         form.form-inline.my-2.my-lg-0(action='/search', method='GET')
 

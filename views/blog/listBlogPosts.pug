@@ -6,4 +6,4 @@ block content
         each post in posts
             article
                 a(href='/blog/'+post.title)= post.title
-                | - Written #{post.date}
+                | - #{moment(post.date).format('DD/MM/YYYY')}

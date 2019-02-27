@@ -12,6 +12,7 @@ const port = process.env.PORT || 3000;
 
 let blog = require('./routes/blog');
 let projects = require('./routes/projects');
+
 let search = require('./routes/search');
 
 app.set('view engine', 'pug');
@@ -65,9 +66,16 @@ app.use('/blog', blog);
 app.use('/projects', projects);
 app.use('/search', search);
 app.locals.moment = require('moment');
+app.locals.titles = [];
 
 app.get('/', (req, res) => {
-    res.render('home');
+    require('./database/models/projectModel').find({}, (err, projects) => {
+        projects.forEach((project) => {
+            if (!app.locals.titles.includes(project.title))
+                app.locals.titles.push(project.title)
+        });
+        res.render('home');
+    }) 
 });
 
 app.get('/login', (req, res) => {
