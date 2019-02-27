@@ -81,11 +81,23 @@ router.get('/:title', (req, res) => {
 
         if (post) {
             res.render('singleDocView', {
-                document: post
+                document: post,
+                type: 'blog'
             });
         } else {
             res.status(404).send();
         }
+    })
+})
+
+router.post('/:title', ensureAuthenticated, (req, res) => {
+    Post.deleteOne({title: req.params.title}, (err) => {
+        if (err) {
+            req.flash('danger', 'Failed to delete post');
+        } else {
+            req.flash('success', 'Post deleted');
+        }
+        res.redirect('/');
     })
 })
 

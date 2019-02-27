@@ -11,3 +11,6 @@ block content
             each keyword in document.keywords
                 a(href='/search?query='+keyword+'&blog=\'on\'', style='margin-right:5px;')= keyword
         p !{document.parsedHtml}
+    if user
+        form(action='/'+type+'/'+document.title, method='POST')
+            input.btn.btn-danger(type='submit', value='Delete')

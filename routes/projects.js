@@ -85,11 +85,23 @@ router.get('/:title', (req, res) => {
 
         if (project) {
             res.render('singleDocView', {
-                document: project
+                document: project,
+                type: 'projects'
             });
         } else {
             res.status(404).send();
         }
+    })
+});
+
+router.post('/:title', ensureAuthenticated, (req, res) => {
+    Project.deleteOne({title: req.params.title}, (err) => {
+        if (err) {
+            req.flash('danger', 'Failed to delete project');
+        } else {
+            req.flash('success', 'Project deleted');
+        }
+        res.redirect('/');
     })
 })
 
