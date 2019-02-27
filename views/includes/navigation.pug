@@ -9,8 +9,8 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
             if user
                 li.nav-item
                     a.nav-link(href='/blog/addpost') Add Post
-            li.nav-item
-                a.nav-link(href='/projects/addproject') Add Project
+                li.nav-item
+                    a.nav-link(href='/projects/addproject') Add Project
             li.nav-item.dropdown
                 a#navbarDropdown.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
                     | Projects
@@ -19,6 +19,19 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
                     .dropdown-divider
                     a.dropdown-item(href='#') Project One
                     a.dropdown-item(href='#') Project Two
-        form.form-inline.my-2.my-lg-0(action='/blog/search', method='GET')
-            input.form-control.mr-sm-2(type='search', placeholder='Search Blog Posts', aria-label='Search', name='query', title='Enter a title, keyword or category to search for', alt='Enter a title, keyword or category to search for')
+
+        form.form-inline.my-2.my-lg-0(action='/search', method='GET')
+
+            input.form-control.mr-sm-2(type='search', placeholder='Search For...', aria-label='Search', name='query', title='Enter a title, keyword or category to search for', alt='Enter a title, keyword or category to search for')
+            
+            .form-check
+                input#blogCheck.form-check-input(type='checkbox', name='blog' checked)
+                label(for='blogCheck')
+                    | Blog
+            .form-check
+                input#projectCheck.form-check-input(type='checkbox', name='project' checked)
+                label(for='projectCheck')
+                    | Project
+                
+
             button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search

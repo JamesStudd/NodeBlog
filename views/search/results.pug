@@ -1,0 +1,17 @@
+extends ../_layout.pug
+block content
+    h2 Results
+
+    if posts && posts.length > 0
+        h3 Blog Posts
+        each post in posts
+            article
+                a(href='/blog/'+post.title)= post.title
+                | - #{moment(post.date).format('DD/MM/YYYY')}
+
+    if projects && projects.length > 0
+        h3 Projects
+        each project in projects
+            article
+                a(href='/projects/'+project.title)= project.title
+                | - #{moment(project.date).format('DD/MM/YYYY')}

@@ -60,31 +60,6 @@ router.post('/addpost', (req, res) => {
     }
 });
 
-router.get('/search', (req, res) => {
-    if (!req.query.query || req.query == '')
-        res.render('blog/listBlogPosts');
-    else {
-        req.query.query = req.query.query.toLowerCase();
-        Post.find({$or: [   {title: {"$regex": req.query.query, "$options": "i"}}, 
-                            {categories: req.query.query}, 
-                            {keywords: req.query.query} ]}, 
-                            (err, posts) => {
-            if (err) {
-                console.log(err);
-                req.flash('danger', 'Error when searching posts');
-                res.redirect('/');
-            }
-
-            if (posts) {
-                res.render('blog/listBlogPosts', { posts });
-            } else {
-                req.flash('danger', `No posts found with query ${req.query.query}`);
-                res.redirect('/');
-            }
-        })
-    }
-});
-
 router.get('/:title', (req, res) => {
     Post.findOne({title: req.params.title}, (err, post) => {
         if (err) {

@@ -1,9 +1,50 @@
 extends ../_layout.pug
 block content
-    h1 Node Blog
+    h1(style='text-align: center;') Projects
+
+    style(type='text/css').
+        .center-text {
+            text-align: center;
+            max-width: 200px;
+            max-height: 50px;
+            overflow: hidden;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        .center-img {
+            width: 10em;
+            height: 10em;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .project {
+            border: 1px solid red;
+            margin: 5px;
+            width: 15em;
+        }
+        .date {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .seperator {
+            margin-top: 2px;
+            margin-bottom: 6px;
+        }
+        .content {
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+        }
 
     if projects
-        each project in projects
-            article
-                a(href='/project/'+project.title)= project.title
-                | - Written #{project.date}
+        .row.content.justify-content-md-center
+            each project in projects
+                .col-auto.project
+                    a(href='/project/'+project.title, alt=project.title)
+                        img.center-img(src=project.image, alt=project.title)
+                    a(href='/project/'+project.title)
+                        p.center-text #{project.title}
+                    p.date #{moment(project.date).format('DD/MM/YYYY')}
+                    hr.seperator
+                    p.center-text= project.shortDescription

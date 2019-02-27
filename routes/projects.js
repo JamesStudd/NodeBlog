@@ -6,7 +6,6 @@ const converter = new showdown.Converter();
 const Project = require('./../database/models/projectModel');
 
 function ensureAuthenticated(req, res, next) {
-    return next();
     if (req.isAuthenticated()) {
         return next();
     } else {

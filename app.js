@@ -3,7 +3,6 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const bodyParser = require('body-parser');
-const bcrypt = require('bcryptjs');
 const passport = require('passport');
 
 const expressValidator = require('express-validator');
@@ -13,6 +12,7 @@ const port = process.env.PORT || 3000;
 
 let blog = require('./routes/blog');
 let projects = require('./routes/projects');
+let search = require('./routes/search');
 
 app.set('view engine', 'pug');
 app.use(bodyParser.json());
@@ -63,6 +63,8 @@ app.get('*', (req, res, next) => {
 
 app.use('/blog', blog);
 app.use('/projects', projects);
+app.use('/search', search);
+app.locals.moment = require('moment');
 
 app.get('/', (req, res) => {
     res.render('home');
