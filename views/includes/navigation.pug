@@ -1,16 +1,17 @@
-nav.navbar.navbar-expand-lg.navbar-light.bg-light
-    a.navbar-brand(href='/') Home
-    button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+// example 3 - Navbar with brand left, links on center and right that collapse into the vert mobile menu
+nav.navbar.navbar-light.navbar-expand-lg.justify-content-center
+    a.navbar-brand.d-flex.w-50.mr-auto(href='/') Home
+    button.navbar-toggler(type='button', data-toggle='collapse', data-target='#collapsingNavbar3')
         span.navbar-toggler-icon
-    #navbarSupportedContent.collapse.navbar-collapse
-        ul.navbar-nav.mr-auto
-            li.nav-item
-                a.nav-link(href='/blog') Blog
+    #collapsingNavbar3.collapse.navbar-collapse.w-100.flex-grow-1
+        ul.navbar-nav.w-100.justify-content-center
             if user
                 li.nav-item
                     a.nav-link(href='/blog/addpost') Add Post
                 li.nav-item
                     a.nav-link(href='/projects/addproject') Add Project
+            li.nav-item
+                a.nav-link(href='/blog') Blog
             li.nav-item.dropdown
                 a#navbarDropdown.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
                     | Projects
@@ -20,19 +21,17 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
                     if titles
                         each title in titles
                             a.dropdown-item(href='/projects/'+title) #{title}
+            li.nav-item
+                a.nav-link(href='#') About
+        ul.nav.navbar-nav.ml-auto.w-100.justify-content-end
+            form.form-inline(action='/search', method='GET')
+                input.form-control.form-control-md(type='search', style='width:150px;' placeholder='Search query', aria-label='Search', name='query', title='Enter a title, keyword or category to search for', alt='Enter a title, keyword or category to search for')
+                div
+                    label.navCheck(for="blogCheck", style="display:block;padding-left:15px;padding-right:15px;")
+                        input#blogCheck.form-check-input(type='checkbox', name="blog" checked)
+                        | Blog
 
-        form.form-inline.my-2.my-lg-0(action='/search', method='GET')
-
-            input.form-control.mr-sm-2(type='search', placeholder='Search For...', aria-label='Search', name='query', title='Enter a title, keyword or category to search for', alt='Enter a title, keyword or category to search for')
-            
-            .form-check
-                input#blogCheck.form-check-input(type='checkbox', name='blog' checked)
-                label(for='blogCheck')
-                    | Blog
-            .form-check
-                input#projectCheck.form-check-input(type='checkbox', name='project' checked)
-                label(for='projectCheck')
-                    | Project
-                
-
-            button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+                    label.navCheck(for="projectCheck", style="display:block;padding-left:15px;padding-right:15px;")
+                        input#projectCheck.form-check-input(type='checkbox', name="project" checked)
+                        | Project
+                button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
