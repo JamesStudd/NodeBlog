@@ -4,18 +4,25 @@ const path = require('path');
 const app = express();
 const bodyParser = require('body-parser');
 const passport = require('passport');
-
 const expressValidator = require('express-validator');
 const session = require('express-session');
 
 const port = process.env.PORT || 3000;
 
+// Routes
 let blog = require('./routes/blog');
 let projects = require('./routes/projects');
-const Project = require('./database/models/projectModel');
-
 let search = require('./routes/search');
 
+// Project model
+const Project = require('./database/models/projectModel');
+
+// Some locals to use in pug templating
+app.locals.titles = [];
+app.locals.moment = require('moment');
+
+
+// Express App Setup
 app.set('view engine', 'pug');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -54,12 +61,17 @@ app.use(expressValidator({
     }
 }));
 
+// Express passport middleware
 require('./config/passport')(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.locals.titles = [];
+// App routing
+app.use('/blog', blog);
+app.use('/projects', projects);
+app.use('/search', search);
 
+// App Routes
 app.get('*', (req, res, next) => {
     res.locals.user = req.user || null;
 
@@ -71,12 +83,6 @@ app.get('*', (req, res, next) => {
         next();
     });
 });
-
-app.use('/blog', blog);
-app.use('/projects', projects);
-app.use('/search', search);
-app.locals.moment = require('moment');
-
 
 app.get('/', (req, res) => {
     res.render('home');

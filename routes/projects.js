@@ -3,17 +3,9 @@ const { check, validationResult } = require('express-validator/check');
 const router = express.Router();
 const showdown = require('showdown');
 const converter = new showdown.Converter();
+const ensureAuthenticated = require('./../auth/verify');
 
 const Project = require('./../database/models/projectModel');
-
-function ensureAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
-        return next();
-    } else {
-        req.flash('danger', 'Unauthorized');
-        res.redirect('/');
-    }
-}
 
 router.get('/', (req, res) => {
     Project.find({}, (err, projects) => {
