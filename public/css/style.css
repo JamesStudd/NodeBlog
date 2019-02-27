@@ -1,3 +1,37 @@
+body {
+    background: #9DC2EA;
+}
+
+.header-color {
+    color: #738EAB;
+}
+
+.navigation-bar {
+    background: #ecf0f1;
+    border-bottom: 2px solid #738EAB;
+}
+
+.footer-bar {
+    background: #ecf0f1;
+    border-top: 2px solid #738EAB;
+    border-bottom: 2px solid #738EAB;
+}
+
+.display-body {
+    width: 75%; 
+    margin-top: 2em;
+    margin-left: auto; 
+    margin-right: auto;
+    background: #ecf0f1;
+    border-radius: 6px;
+    border: 1px solid black;
+    padding: 1em;
+}
+
+.seperator {
+    border-top: 1px solid #1D3461;
+}
+
 .alert-error {
     color: #a94442;
     background-color: #f2dede;
@@ -16,4 +50,9 @@
 
 .body-content {
     text-align: center;
+}
+
+.stick-right {
+    margin: auto 5px auto auto;
+    opacity: 0.5;
 }

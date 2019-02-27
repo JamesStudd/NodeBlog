@@ -12,14 +12,13 @@ block content
             margin-bottom: 0;
         }
         .center-img {
-            width: 10em;
-            height: 10em;
+            width: 180px;
+            height: 150px;
             display: block;
             margin-left: auto;
             margin-right: auto;
         }
         .project {
-            border: 1px solid red;
             margin: 5px;
             width: 15em;
         }
@@ -28,23 +27,25 @@ block content
             padding: 0;
             text-align: center;
         }
-        .seperator {
+        .project-seperator {
             margin-top: 2px;
             margin-bottom: 6px;
         }
-        .content {
-            border-left: 1px solid black;
-            border-right: 1px solid black;
+        .single-project {
+            background: white;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid #738EAB;
         }
 
     if projects
         .row.content.justify-content-md-center
             each project in projects
-                .col-auto.project
+                .col-auto.project.single-project
                     a(href='/projects/'+project.title, alt=project.title)
                         img.center-img(src=project.image, alt=project.title)
                     a(href='/projects/'+project.title)
                         p.center-text #{project.title}
                     p.date #{moment(project.date).format('DD/MM/YYYY')}
-                    hr.seperator
+                    hr.project-seperator
                     p.center-text= project.shortDescription

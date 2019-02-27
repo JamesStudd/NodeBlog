@@ -4,13 +4,13 @@ html
         title Blog
         link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.css')
         link(rel='stylesheet' href='/css/style.css')
+        
     body
         include includes/navigation.pug
         .container
             != messages('includes/message', locals)
             block content
             br
-            hr
         include includes/footer.pug
         script(src='/bower_components/jquery/dist/jquery.js')
         script(src='/bower_components/bootstrap/dist/js/bootstrap.js')

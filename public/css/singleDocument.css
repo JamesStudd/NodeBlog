@@ -1,0 +1,8 @@
+.list-label {
+    display:inline;
+    margin-right:5px;
+}
+
+#document-body {
+    display: flex; 
+}

@@ -1,30 +1,28 @@
 extends ../_layout.pug
 block content
     h1.page-title About
-    br
-    hr
-    h3.page-title Myself
-    p.body-content 
-        | Hello, I am James Studd, currently a student about to complete my final year of Teesside University. I really enjoy working with any sort of language/framework that I can, ranging anywhere from 
-        a(href='/search?query=Unity&blog=on&project=on') Unity
-        |  to 
-        a(href='/search?query=Node&blog=on&project=on') Node
-        |  to 
-        a(href='/search?query=Python&blog=on&project=on') Python
-        |  to 
-        a(href='/search?query=Arduino&blog=on&project=on') Arduino,
-        |  as well as currently trying to learn more C++.
-        | I have been programming since I started university (5 years ago) and I've loved making anything and everything whilst doing it. My goto has always been games, whether that's a text based game 1 week into programming, a 48 hour game jam rush: 
-        a(href='http://www.jamesstudd.com/SushiSecret/') Sushi Secret as part of Ludum Dare 40
-        |  and 
-        a(href='http://www.jamesstudd.com/PacketPass/') Packet Pass as part of Global Game Jam.
-        |  or a tiny 
-        a(href='https://www.youtube.com/watch?v=zfpl04F5mww') Arduino game using an OLED screen and a single joystick.
-    p.body-content
-        | Feel free to contact me using any of the social media links below 😎
-    br
-    hr
-    h3.page-title This website
-    p.body-content
-        | When the time came to apply to a company for my placement year, I decided to create a blog/portfolio to aid in that process. I eventually settled on using Jekyll, a static site generator that seems very popular for blogging, as well as using Github pages for hosting. Jekyll makes blogging exceptionally easy, writing a post in markdown and then running a command to convert it to HTML. After a year (or so) of using Jekyll, I decided to just create my own blogging system using my favourite web dev framework - Node. Granted whoever views the website might not see much difference, but I believe I now have much better control over what my website does/looks like. This website (at the moment) uses Express, Pug and Mongoose, as well as a few other smaller libraries. For a full blog post of the development process, 
-        a(href='#') click here!
+    article.display-body
+        h3.page-title.header-color Myself
+        p.body-content 
+            | Hello, I am James Studd, currently a student about to complete my final year of Teesside University. I really enjoy working with any sort of language/framework that I can, ranging anywhere from 
+            a(href='/search?query=Unity&blog=on&project=on') Unity
+            |  to 
+            a(href='/search?query=Node&blog=on&project=on') Node
+            |  to 
+            a(href='/search?query=Python&blog=on&project=on') Python
+            |  to 
+            a(href='/search?query=Arduino&blog=on&project=on') Arduino,
+            |  as well as currently trying to learn more C++.
+            | I have been programming since I started university (5 years ago) and I've loved making anything and everything whilst doing it. My goto has always been games, whether that's a text based game 1 week into programming, a 48 hour game jam rush: 
+            a(href='http://www.jamesstudd.com/SushiSecret/') Sushi Secret as part of Ludum Dare 40
+            |  and 
+            a(href='http://www.jamesstudd.com/PacketPass/') Packet Pass as part of Global Game Jam.
+            |  or a tiny 
+            a(href='https://www.youtube.com/watch?v=zfpl04F5mww') Arduino game using an OLED screen and a single joystick.
+        p.body-content
+            | Feel free to contact me using any of the social media links below 😎
+        hr.seperator
+        h3.page-title.header-color This website
+        p.body-content
+            | When the time came to apply to a company for my placement year, I decided to create a blog/portfolio to aid in that process. I eventually settled on using Jekyll, a static site generator that seems very popular for blogging, as well as using Github pages for hosting. Jekyll makes blogging exceptionally easy, writing a post in markdown and then running a command to convert it to HTML. After a year (or so) of using Jekyll, I decided to just create my own blogging system using my favourite web dev framework - Node. Granted whoever views the website might not see much difference, but I believe I now have much better control over what my website does/looks like. This website (at the moment) uses Express, Pug and Mongoose, as well as a few other smaller libraries. For a full blog post of the development process, 
+            a(href='#') click here!

@@ -2,8 +2,32 @@ extends ../_layout.pug
 block content
     h1.page-title Blog
 
+    style(type='text/css').
+        .date {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .single-post {
+            background: white;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid #738EAB;
+            height: 60px;
+            display: flex;
+        }
+        .single-post h2 {
+            margin: auto 0 auto 10px;
+        }
+
+        .single-post h2 a {
+            color: #1D3461;
+        }
+
     if posts
         each post in posts
-            article.body-content
-                a(href='/blog/'+post.title)= post.title
-                | - #{moment(post.date).format('DD/MM/YYYY')}
+            article.single-post
+                h2
+                    a(href='/blog/'+post.title)= post.title
+                p.stick-right
+                    | #{moment(post.date).format('DD/MM/YYYY')}
