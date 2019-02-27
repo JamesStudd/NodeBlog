@@ -1,4 +1,5 @@
 const express = require('express');
+const { check, validationResult } = require('express-validator/check');
 const router = express.Router();
 const showdown = require('showdown');
 const converter = new showdown.Converter();
@@ -26,15 +27,27 @@ router.get('/addpost', ensureAuthenticated, (req, res) => {
     res.render('blog/addNewPost');
 })
 
-router.post('/addpost', (req, res) => {   
-    req.checkBody('body', 'Body is required').notEmpty();
-    req.checkBody('title', 'Title is required').notEmpty();
+router.post('/addpost', [
 
-    let errors = req.validationErrors();
+    // Middleware
+    ensureAuthenticated,
+    check('body').not().isEmpty().withMessage('Body is required'),
+    check('title').not().isEmpty().withMessage('Title is required'),
+    check('title').custom((title) => {
+        return Post.findOne({title: title}).then((post) => {
+            if (post) {
+                return Promise.reject('Title is already in use');
+            }
+        })
+    })
 
-    if (errors) {
-        for (let i = 0; i < errors.length; i++) {
-            req.flash('danger', errors[i].msg);
+    ], (req, res) => {   
+
+    let errors = validationResult(req);
+
+    if (errors.array().length > 0) {
+        for (let i = 0; i < errors.array().length; i++) {
+            req.flash('danger', errors.array()[i].msg);
         }
         res.render('blog/addNewPost');
     } else {

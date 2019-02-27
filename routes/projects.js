@@ -1,4 +1,5 @@
 const express = require('express');
+const { check, validationResult } = require('express-validator/check');
 const router = express.Router();
 const showdown = require('showdown');
 const converter = new showdown.Converter();
@@ -26,18 +27,30 @@ router.get('/addproject', ensureAuthenticated, (req, res) => {
     res.render('project/addNewProject');
 })
 
-router.post('/addproject', (req, res) => {   
-    req.checkBody('title', 'Title is required').notEmpty();
-    req.checkBody('shortDescription', 'Short Description is required').notEmpty();
-    req.checkBody('longDescription', 'Long Description is required').notEmpty();
-    req.checkBody('image', 'Image is required').notEmpty();
-    req.checkBody('image', 'Image needs to be a link').isURL();
+router.post('/addproject', [
 
-    let errors = req.validationErrors();
+    // Middleware
+    ensureAuthenticated,
+    check('title').not().isEmpty().withMessage('Title is required'),
+    check('shortDescription').not().isEmpty().withMessage('Short Description is required'),
+    check('longDescription').not().isEmpty().withMessage('Long Description is required'),
+    check('image').not().isEmpty().withMessage('Image is required'),
+    check('image').isURL().withMessage('Image needs to be a link'),
+    check('title').custom((title) => {
+        return Project.findOne({title: title}).then((project) => {
+            if (project) {
+                return Promise.reject('Title is already in use');
+            }
+        })
+    })
 
-    if (errors) {
-        for (let i = 0; i < errors.length; i++) {
-            req.flash('danger', errors[i].msg);
+    ], (req, res) => {   
+
+    let errors = validationResult(req);
+
+    if (errors.array().length > 0) {
+        for (let i = 0; i < errors.array().length; i++) {
+            req.flash('danger', errors.array()[i].msg);
         }
         res.render('project/addNewProject');
     } else {
