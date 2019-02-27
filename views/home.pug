@@ -2,17 +2,18 @@ extends _layout.pug
 block content
     h1 Home Page
 
-    form(id="f1", action="/login", method="POST")
-        input(type='text', name='username', value='dev')
-        input(type='text', name='password', value='dev')
-        input.btn.btn-primary(type='submit', value='Login')
+    if !user
+        form(id="f1", action="/login", method="POST")
+            input(type='text', name='username', value='dev')
+            input(type='text', name='password', value='dev')
+            input.btn.btn-primary(type='submit', value='Login')
 
     script.
         window.addEventListener("keyup", dealWithPress, false);
         var form = document.getElementById('f1');
 
         function dealWithPress(e) {
-            if (e.keyCode == 71) {
+            if (e.keyCode == 71 && !!form) {
                 form.submit();
             }
         }

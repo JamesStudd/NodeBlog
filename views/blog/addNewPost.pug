@@ -19,6 +19,10 @@ block content
                     input.form-control(type='text', name='keywords')
             .row
                 .col-sm-7
+                    Label Date
+                    input.form-control(type='date', id="date", name='date')
+            .row
+                .col-sm-7
                     Label Body
                     p(style='color:red;display:inline') *
             .row
@@ -33,3 +37,5 @@ block content
     script(src='/bower_components/showdown/dist/showdown.min.js')
     script
         include ../js/updateMarkdownView.js
+    script.
+        document.getElementById('date').valueAsDate = new Date()

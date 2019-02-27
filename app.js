@@ -21,7 +21,6 @@ const Project = require('./database/models/projectModel');
 app.locals.titles = [];
 app.locals.moment = require('moment');
 
-
 // Express App Setup
 app.set('view engine', 'pug');
 app.use(bodyParser.json());
@@ -66,16 +65,11 @@ require('./config/passport')(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
-// App routing
-app.use('/blog', blog);
-app.use('/projects', projects);
-app.use('/search', search);
-
 // App Routes
 app.get('*', (req, res, next) => {
     res.locals.user = req.user || null;
-
     Project.find({}, (err, projects) => {
+        app.locals.titles = [];
         projects.forEach((project) => {
             if (!app.locals.titles.includes(project.title))
                 app.locals.titles.push(project.title)
@@ -83,6 +77,11 @@ app.get('*', (req, res, next) => {
         next();
     });
 });
+
+// App routing
+app.use('/blog', blog);
+app.use('/projects', projects);
+app.use('/search', search);
 
 app.get('/', (req, res) => {
     res.render('home');

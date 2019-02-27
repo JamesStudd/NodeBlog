@@ -19,6 +19,10 @@ block content
                     input.form-control(type='text', name='keywords')
             .row
                 .col-sm-7
+                    Label Date
+                    input.form-control(type='date', id="date", name='date')
+            .row
+                .col-sm-7
                     Label Short Description
                     p(style='color:red;display:inline') *
                     textarea.form-control(name='shortDescription', rows="2", cols="82")
@@ -41,3 +45,5 @@ block content
     script(src='/bower_components/showdown/dist/showdown.min.js')
     script
         include ../js/updateMarkdownView.js
+    script.
+        document.getElementById('date').valueAsDate = new Date()
