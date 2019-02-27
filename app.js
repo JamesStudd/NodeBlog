@@ -12,6 +12,7 @@ const port = process.env.PORT || 3000;
 
 let blog = require('./routes/blog');
 let projects = require('./routes/projects');
+const Project = require('./database/models/projectModel');
 
 let search = require('./routes/search');
 
@@ -57,25 +58,28 @@ require('./config/passport')(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.locals.titles = [];
+
 app.get('*', (req, res, next) => {
     res.locals.user = req.user || null;
-    next();
+
+    Project.find({}, (err, projects) => {
+        projects.forEach((project) => {
+            if (!app.locals.titles.includes(project.title))
+                app.locals.titles.push(project.title)
+        }); 
+        next();
+    });
 });
 
 app.use('/blog', blog);
 app.use('/projects', projects);
 app.use('/search', search);
 app.locals.moment = require('moment');
-app.locals.titles = [];
+
 
 app.get('/', (req, res) => {
-    require('./database/models/projectModel').find({}, (err, projects) => {
-        projects.forEach((project) => {
-            if (!app.locals.titles.includes(project.title))
-                app.locals.titles.push(project.title)
-        });
-        res.render('home');
-    }) 
+    res.render('home');
 });
 
 app.get('/login', (req, res) => {
