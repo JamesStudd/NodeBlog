@@ -1,6 +1,6 @@
 extends ../_layout.pug
 block content
-    h2 Results
+    h2 #{(posts.length == 0 && projects.length == 0) ? 'Nothing found :(' : 'Results'}
 
     if posts && posts.length > 0
         h3 Blog Posts

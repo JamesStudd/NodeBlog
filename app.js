@@ -13,6 +13,7 @@ const port = process.env.PORT || 3000;
 let blog = require('./routes/blog');
 let projects = require('./routes/projects');
 let search = require('./routes/search');
+let about = require('./routes/about');
 
 // Project model
 const Project = require('./database/models/projectModel');
@@ -82,6 +83,7 @@ app.get('*', (req, res, next) => {
 app.use('/blog', blog);
 app.use('/projects', projects);
 app.use('/search', search);
+app.use('/about', about);
 
 app.get('/', (req, res) => {
     res.render('home');

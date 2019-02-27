@@ -1,9 +1,9 @@
 extends ../_layout.pug
 block content
-    h1.page-title Node Blog
+    h1.page-title Blog
 
     if posts
         each post in posts
-            article
+            article.body-content
                 a(href='/blog/'+post.title)= post.title
                 | - #{moment(post.date).format('DD/MM/YYYY')}

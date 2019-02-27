@@ -1,6 +1,6 @@
 // example 3 - Navbar with brand left, links on center and right that collapse into the vert mobile menu
 nav.navbar.navbar-light.navbar-expand-lg.justify-content-center
-    a.navbar-brand.d-flex.w-50.mr-auto(href='/') Home
+    a.navbar-brand.d-flex.w-50.mr-auto
     button.navbar-toggler(type='button', data-toggle='collapse', data-target='#collapsingNavbar3')
         span.navbar-toggler-icon
     #collapsingNavbar3.collapse.navbar-collapse.w-100.flex-grow-1
@@ -22,7 +22,7 @@ nav.navbar.navbar-light.navbar-expand-lg.justify-content-center
                         each title in titles
                             a.dropdown-item(href='/projects/'+title) #{title}
             li.nav-item
-                a.nav-link(href='#') About
+                a.nav-link(href='/about') About
         ul.nav.navbar-nav.ml-auto.w-100.justify-content-end
             form.form-inline(action='/search', method='GET')
                 input.form-control.form-control-md(type='search', style='width:150px;' placeholder='Search query', aria-label='Search', name='query', title='Enter a title, keyword or category to search for', alt='Enter a title, keyword or category to search for')

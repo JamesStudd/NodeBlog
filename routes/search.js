@@ -8,8 +8,8 @@ router.get('/', (req, res) => {
     let promises = [];
 
     if (!req.query.blog && !req.query.project || !req.query.query || req.query.query == '')
-        res.redirect('/');
-
+        return res.redirect('/');
+    
     if (!!req.query.blog)
         promises.push(findDocs(Post, req.query.query))
     
