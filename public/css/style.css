@@ -2,10 +2,6 @@ body {
     background: #9DC2EA;
 }
 
-.header-color {
-    color: #738EAB;
-}
-
 .navigation-bar {
     background: #ecf0f1;
     border-bottom: 2px solid #738EAB;
@@ -26,6 +22,10 @@ body {
     border-radius: 6px;
     border: 1px solid black;
     padding: 1em;
+}
+
+.display-body img {
+    max-width: 100%;
 }
 
 .seperator {

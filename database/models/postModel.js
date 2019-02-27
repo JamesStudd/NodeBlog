@@ -7,6 +7,9 @@ if (mongoose.connection && mongoose.connection.readyState == 1 || mongoose.conne
             type: String,
             required: true
         },
+        link: {
+            type: String
+        },
         body: {
             type: String,
             required: true

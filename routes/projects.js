@@ -4,6 +4,7 @@ const router = express.Router();
 const showdown = require('showdown');
 const converter = new showdown.Converter();
 const ensureAuthenticated = require('./../auth/verify');
+const convert = require('./../utils/convert');
 
 const Project = require('./../database/models/projectModel');
 
@@ -55,6 +56,7 @@ router.post('/addproject', [
         }
 
         let projectData = new Project(req.body);
+        projectData.link = convert.toLink(projectData.title);
 
         let html = converter.makeHtml(projectData.longDescription);
         projectData.parsedHtml = html;
@@ -70,7 +72,7 @@ router.post('/addproject', [
 });
 
 router.get('/:title', (req, res) => {
-    Project.findOne({title: req.params.title}, (err, project) => {
+    Project.findOne({link: convert.toLink(req.params.title)}, (err, project) => {
         if (err) {
             return res.status(500).send();
         }
@@ -87,7 +89,7 @@ router.get('/:title', (req, res) => {
 });
 
 router.post('/:title', ensureAuthenticated, (req, res) => {
-    Project.deleteOne({title: req.params.title}, (err) => {
+    Project.deleteOne({link: convert.toLink(req.params.title)}, (err) => {
         if (err) {
             req.flash('danger', 'Failed to delete project');
         } else {

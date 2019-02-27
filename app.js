@@ -19,7 +19,7 @@ let about = require('./routes/about');
 const Project = require('./database/models/projectModel');
 
 // Some locals to use in pug templating
-app.locals.titles = [];
+app.locals.titles = {};
 app.locals.moment = require('moment');
 
 // Express App Setup
@@ -70,11 +70,11 @@ app.use(passport.session());
 app.get('*', (req, res, next) => {
     res.locals.user = req.user || null;
     Project.find({}, (err, projects) => {
-        app.locals.titles = [];
+        let titles = {};
         projects.forEach((project) => {
-            if (!app.locals.titles.includes(project.title))
-                app.locals.titles.push(project.title)
+            titles[project.title] = project.link;
         }); 
+        app.locals.titles = titles;
         next();
     });
 });

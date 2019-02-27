@@ -28,6 +28,6 @@ block content
         each post in posts
             article.single-post
                 h2
-                    a(href='/blog/'+post.title)= post.title
+                    a(href='/blog/'+post.link)= post.title
                 p.stick-right
                     | #{moment(post.date).format('DD/MM/YYYY')}

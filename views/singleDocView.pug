@@ -16,6 +16,8 @@ block content
             h2(style='margin-bottom: 5px;') !{document.title}
             p.stick-right #{moment(document.date).format('DD/MM/YYYY')}
         hr.seperator
+        if document.image
+            img(src=document.image)
         p 
         | !{document.parsedHtml}
     if user

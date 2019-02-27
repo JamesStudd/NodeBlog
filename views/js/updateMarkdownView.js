@@ -5,4 +5,5 @@ function run() {
         html = converter.makeHtml(text);
 
     target.innerHTML = html;
+    hljs.highlightBlock(target);
 }
