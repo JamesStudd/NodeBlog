@@ -4,8 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm i",
+    "start": "node app.js",
+    "build": "yarn install",
     "dev": "nodemon app.js",
     "postinstall": "node -e \"try { require('fs').symlinkSync('../node_modules/@bower_components', 'public/bower_components', 'junction') } catch (e) { }\""
   },
@@ -33,6 +33,7 @@
     "@bower_components/showdown": "showdownjs/showdown#^1.9.0"
   },
   "engines": {
-    "npm": ">= 1.0.0"
+    "node": "9.4.0",
+    "yarn": "1.13.0"
   }
 }
