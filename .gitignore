@@ -3,3 +3,4 @@ playground/
 package-lock.json
 public/bower_components/
 yarn.lock
+credentials.js
