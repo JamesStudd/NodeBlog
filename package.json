@@ -5,26 +5,34 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm i && bower install",
-    "dev": "nodemon app.js"
+    "build": "npm i",
+    "dev": "nodemon app.js",
+    "postinstall": "node -e \"try { require('fs').symlinkSync('../node_modules/@bower_components', 'public/bower_components', 'junction') } catch (e) { }\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
-    "bower": "^1.8.8",
+    "bootstrap": "^4.3.1",
     "connect-flash": "^0.1.1",
     "express": "^4.16.4",
     "express-messages": "^1.0.1",
     "express-session": "^1.15.6",
     "express-validator": "^5.3.1",
+    "jquery": "^3.3.1",
     "moment": "^2.24.0",
     "mongoose": "^5.4.15",
     "nodemon": "^1.18.10",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "pug": "^2.0.3",
-    "showdown": "^1.9.0"
+    "showdown": "^1.9.0",
+    "@bower_components/bootstrap": "twbs/bootstrap#^4.3.1",
+    "@bower_components/jquery": "jquery/jquery-dist#^3.3.1",
+    "@bower_components/showdown": "showdownjs/showdown#^1.9.0"
+  },
+  "engines": {
+    "npm": ">= 1.0.0"
   }
 }
