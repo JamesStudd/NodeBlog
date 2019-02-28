@@ -1,17 +1,31 @@
 extends ../_layout.pug
 block content
-    h2 #{(posts.length == 0 && projects.length == 0) ? 'Nothing found :(' : 'Results'}
+    h2.page-title #{(posts.length == 0 && projects.length == 0) ? 'Nothing found :(' : 'Results'}
+
+    link(rel='stylesheet', href='/css/listPosts.css')
+    link(rel='stylesheet', href='/css/listProjects.css')
+
+    hr
 
     if posts && posts.length > 0
-        h3 Blog Posts
+        h3.page-title Blog Posts
         each post in posts
-            article
-                a(href='/blog/'+post.link)= post.title
-                | - #{moment(post.date).format('DD/MM/YYYY')}
+            article.single-post
+                h2
+                    a(href='/blog/'+post.link)= post.title
+                p.stick-right
+                    | #{moment(post.date).format('DD/MM/YYYY')}
+        hr
 
     if projects && projects.length > 0
-        h3 Projects
-        each project in projects
-            article
-                a(href='/projects/'+project.link)= project.title
-                | - #{moment(project.date).format('DD/MM/YYYY')}
+        h3.page-title Projects
+        .row.content.justify-content-md-center
+            each project in projects
+                .col-auto.project.single-project
+                    a(href='/projects/'+project.link, alt=project.title)
+                        img.center-img(src=project.image, alt=project.title)
+                    a(href='/projects/'+project.link)
+                        p.center-text #{project.title}
+                    p.date #{moment(project.date).format('DD/MM/YYYY')}
+                    hr.project-seperator
+                    p.center-text= project.shortDescription

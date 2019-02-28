@@ -1,8 +1,11 @@
 doctype html
 html
     head
-        title Blog
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        title James Studd
+        include includes/favicon.pug
         link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.css')
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         link(rel='stylesheet' href='/css/style.css')
         <link rel="stylesheet"href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/a11y-light.min.css">
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
@@ -10,7 +13,7 @@ html
         
     body
         include includes/navigation.pug
-        .container
+        .container-fluid
             != messages('includes/message', locals)
             block content
             br

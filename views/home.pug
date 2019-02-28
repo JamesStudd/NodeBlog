@@ -1,23 +1,15 @@
 extends _layout.pug
 block content
     style(type='text/css').
-        #home {
-            width: 60%;
-            background: #ecf0f1;
-            margin: auto;
-            text-align: center;
-            border-radius: 5px;
-        }
-
-    h1.page-title James Studd
-    div#home
+    h1.page-title Home
+    div#display-home
         p
             | The blog and portfolio of James Studd
         if post
             p
                 | Latest blog post: 
-                a(href=post.link) #{post.title}
+                a(href="/blog/"+post.link) #{post.title}
         if project
-            p
+            p(style='margin-bottom:0px')
                 | Latest project: 
-                a(href=project.link) #{project.title}
+                a(href="/projects/"+project.link) #{project.title}

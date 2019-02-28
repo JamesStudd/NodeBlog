@@ -3,6 +3,10 @@
     margin-right:5px;
 }
 
-#document-body {
+#document-header {
     display: flex; 
+}
+
+#document-body {
+    width: 80%;
 }
