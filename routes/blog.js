@@ -9,7 +9,7 @@ const convert = require('./../utils/convert');
 const Post = require('./../database/models/postModel');
 
 router.get('/', (req, res) => {
-    Post.find({}, (err, posts) => {
+    Post.find({}, {}, {sort: {'date': -1} }, (err, posts) => {
         res.render('blog/listBlogPosts', {
             posts
         });

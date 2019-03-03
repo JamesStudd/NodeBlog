@@ -69,10 +69,6 @@ body {
     }
 }
 
-.display-body img {
-    max-width: 100%;
-}
-
 .seperator {
     border-top: 1px solid #36454f;
 }

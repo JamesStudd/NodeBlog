@@ -8,5 +8,31 @@
 }
 
 #document-body {
-    width: 80%;
+    width: 99%;
+}
+
+#document-body img:not(#document-body-image) {
+    max-width: 100%;
+}
+
+#document-body-image {
+    max-width: 40em;
+    max-height: 40em;
+}
+
+#document-body ul {
+    overflow: auto;
+}
+
+#document-body li {
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+
+@media only screen and (max-width: 800px) {
+    #document-body-image {
+        max-width: 99%;
+        max-height: 60%;
+    }
 }

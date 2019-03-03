@@ -18,8 +18,8 @@ nav.navbar.navbar-light.navbar-expand-lg.justify-content-center.navigation-bar
                     a.dropdown-item(href='/projects') All Projects
                     .dropdown-divider
                     if titles
-                        each title in titles
-                            a.dropdown-item(href='/projects/'+title) #{title}
+                        each link,title in titles
+                            a.dropdown-item(href='/projects/'+link) #{title}
             li.nav-item
                 a.nav-link(href='/about') About
         ul.nav.navbar-nav.ml-auto.w-100.justify-content-end

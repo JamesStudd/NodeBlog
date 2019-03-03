@@ -18,7 +18,7 @@ block content
         hr.seperator
         div#document-body
             if document.image
-                img(src=document.image)
+                img#document-body-image(src=document.image)
             p 
             | !{document.parsedHtml}
     if user

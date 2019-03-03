@@ -9,7 +9,7 @@ const convert = require('./../utils/convert');
 const Project = require('./../database/models/projectModel');
 
 router.get('/', (req, res) => {
-    Project.find({}, (err, projects) => {
+    Project.find({}, {}, {sort: {'date': -1} }, (err, projects) => {
         res.render('project/listProjects', {
             projects
         });

@@ -99,12 +99,8 @@ app.get('/', (req, res) => {
                 project: result[1]
             })
         }).catch((err) => {
-            console.log('error getting latest documents');
             res.render('home');
         })
-    Project.findOne({}, {}, {sort: { 'date': -1 } }, (err, project) => {
-        
-    })
 });
 
 const findLatest = (Document) => {
@@ -117,7 +113,7 @@ const findLatest = (Document) => {
             if (foundDoc) {
                 resolve(foundDoc);
             } else {
-                reject();
+                resolve(undefined);
             }
         })
     });
@@ -140,6 +136,17 @@ app.get('/logout', (req, res) => {
     req.flash('success', 'Logged out');
     res.redirect('/');
 });
+
+app.get('/hc', (req, res) => {
+    res.status(200).send();
+})
+
+var http = require("http");
+setInterval(function() {
+    http.get("http://jstudd.herokuapp.com/hc", (resp) => {
+        console.log('Did health check');
+    });
+}, 1740000);
 
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`);
