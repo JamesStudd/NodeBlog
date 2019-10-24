@@ -5,6 +5,8 @@ const bodyParser = require("body-parser");
 const passport = require("passport");
 const expressValidator = require("express-validator");
 const session = require("express-session");
+const fs = require('fs');
+const https = require('https');
 
 const port = process.env.PORT || 3000;
 
@@ -145,6 +147,12 @@ app.get("/hc", (req, res) => {
     res.status(200).send();
 });
 
-app.listen(port, () => {
-    console.log(`Server listening on port ${port}`);
-});
+const httpsOptions = {
+    cert: fs.readFileSync(path.join(__dirname, 'ssl', 'server.cert')),
+    key: fs.readFileSync(path.join(__dirname, 'ssl', 'server.key'))
+}
+
+https.createServer(httpsOptions, app)
+    .listen(port, () => {
+        console.log(`Listening on port ${port}`);
+    })
