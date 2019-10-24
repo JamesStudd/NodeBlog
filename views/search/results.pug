@@ -1,7 +1,7 @@
 extends ../_layout.pug
 block content
-    h2.page-title #{(posts.length == 0 && projects.length == 0) ? 'Nothing found :(' : 'Results'}
-
+    h2.page-title Results
+    
     link(rel='stylesheet', href='/css/listPosts.css')
     link(rel='stylesheet', href='/css/listProjects.css')
 
@@ -15,7 +15,10 @@ block content
                     a(href='/blog/'+post.link)= post.title
                 p.stick-right
                     | #{moment(post.date).format('DD/MM/YYYY')}
-        hr
+    else
+        h3.page-title No blog posts found
+    
+    hr
 
     if projects && projects.length > 0
         h3.page-title Projects
@@ -29,3 +32,5 @@ block content
                     p.date #{moment(project.date).format('DD/MM/YYYY')}
                     hr.project-seperator
                     p.center-text= project.shortDescription
+    else
+        h3.page-title No projects found

@@ -6,12 +6,12 @@ block content
         if document.categories && document.categories.length > 0 && document.categories[0] != ""
             p.list-label Categories:
             each category in document.categories
-                a(href='/search?query='+category+'&blog=\'on\'', style='margin-right:5px;')= category
+                a(href='/search?query='+category+'&blog=on&project=on', style='margin-right:5px;')= category
             br
         if document.keywords && document.keywords.length > 0 && document.keywords[0] != ""
             p.list-label Keywords:
             each keyword in document.keywords
-                a(href='/search?query='+keyword+'&blog=\'on\'', style='margin-right:5px;')= keyword
+                a(href='/search?query='+keyword+'&blog=on&project=on', style='margin-right:5px;')= keyword
         div#document-header
             h2(style='margin-bottom: 5px;') !{document.title}
             p.stick-right #{moment(document.date).format('DD/MM/YYYY')}
