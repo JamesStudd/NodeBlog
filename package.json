@@ -28,5 +28,8 @@
     },
     "engines": {
         "yarn": "1.13.0"
+    },
+    "resolutions": {
+        "mem": "5.1.1"
     }
 }
