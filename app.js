@@ -6,7 +6,7 @@ const passport = require("passport");
 const expressValidator = require("express-validator");
 const session = require("express-session");
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 // Routes
 let blog = require("./routes/blog");
@@ -23,46 +23,45 @@ app.locals.titles = {};
 app.locals.moment = require("moment");
 
 // Express App Setup
-app.set("view engine", "pug");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
 // Express Session Middleware
 app.use(
-    session({
-        secret: "keyboard cat",
-        resave: true,
-        saveUninitialized: true
-    })
+  session({
+    secret: "keyboard cat",
+    resave: true,
+    saveUninitialized: true
+  })
 );
 
 // Express Messages Middleware
 app.use(require("connect-flash")());
 app.use(function(req, res, next) {
-    res.locals.messages = require("express-messages")(req, res);
-    next();
+  res.locals.messages = require("express-messages")(req, res);
+  next();
 });
 
 // Express validator middleware
 app.use(
-    expressValidator({
-        errorFormatter: function(param, msg, value) {
-            var namespace = param.split("."),
-                root = namespace.shift(),
-                formParam = root;
+  expressValidator({
+    errorFormatter: function(param, msg, value) {
+      var namespace = param.split("."),
+        root = namespace.shift(),
+        formParam = root;
 
-            while (namespace.length) {
-                formParam += "[" + namespace.shift() + "]";
-            }
+      while (namespace.length) {
+        formParam += "[" + namespace.shift() + "]";
+      }
 
-            return {
-                param: formParam,
-                msg: msg,
-                value: value
-            };
-        }
-    })
+      return {
+        param: formParam,
+        msg: msg,
+        value: value
+      };
+    }
+  })
 );
 
 // Express passport middleware
@@ -72,15 +71,15 @@ app.use(passport.session());
 
 // App Routes
 app.get("*", (req, res, next) => {
-    res.locals.user = req.user || null;
-    Project.find({}, (err, projects) => {
-        let titles = {};
-        projects.forEach(project => {
-            titles[project.title] = project.link;
-        });
-        app.locals.titles = titles;
-        next();
+  res.locals.user = req.user || null;
+  Project.find({}, (err, projects) => {
+    let titles = {};
+    projects.forEach(project => {
+      titles[project.title] = project.link;
     });
+    app.locals.titles = titles;
+    next();
+  });
 });
 
 // App routing
@@ -90,61 +89,60 @@ app.use("/search", search);
 app.use("/about", about);
 
 app.get("/", (req, res) => {
-    let promises = [];
-
-    promises.push(findLatest(Post));
-    promises.push(findLatest(Project));
-
-    Promise.all(promises)
-        .then(result => {
-            res.render("home", {
-                post: result[0],
-                project: result[1]
-            });
-        })
-        .catch(err => {
-            res.render("home");
-        });
+  res.send("Hello World");
+  // let promises = [];
+  // promises.push(findLatest(Post));
+  // promises.push(findLatest(Project));
+  // Promise.all(promises)
+  //   .then(result => {
+  //     res.render("home", {
+  //       post: result[0],
+  //       project: result[1]
+  //     });
+  //   })
+  //   .catch(err => {
+  //     res.render("home");
+  //   });
 });
 
 const findLatest = Document => {
-    return new Promise((resolve, reject) => {
-        Document.findOne({}, {}, { sort: { date: -1 } }, (err, foundDoc) => {
-            if (err) {
-                console.log(err);
-                reject(err);
-            }
-            if (foundDoc) {
-                resolve(foundDoc);
-            } else {
-                resolve(undefined);
-            }
-        });
+  return new Promise((resolve, reject) => {
+    Document.findOne({}, {}, { sort: { date: -1 } }, (err, foundDoc) => {
+      if (err) {
+        console.log(err);
+        reject(err);
+      }
+      if (foundDoc) {
+        resolve(foundDoc);
+      } else {
+        resolve(undefined);
+      }
     });
+  });
 };
 
 app.get("/login", (req, res) => {
-    res.render("login");
+  res.render("login");
 });
 
 app.post("/login", (req, res, next) => {
-    passport.authenticate("local", {
-        successRedirect: "/",
-        failureRedirect: "/login",
-        failureFlash: true
-    })(req, res, next);
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/login",
+    failureFlash: true
+  })(req, res, next);
 });
 
 app.get("/logout", (req, res) => {
-    req.logout();
-    req.flash("success", "Logged out");
-    res.redirect("/");
+  req.logout();
+  req.flash("success", "Logged out");
+  res.redirect("/");
 });
 
 app.get("/hc", (req, res) => {
-    res.status(200).send();
+  res.status(200).send();
 });
 
 app.listen(port, () => {
-    console.log(`Listening on port ${port}`);
-})
+  console.log(`Listening on port ${port}`);
+});

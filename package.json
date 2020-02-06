@@ -1,35 +1,36 @@
 {
-    "name": "newwebsite",
-    "version": "1.0.0",
-    "description": "",
-    "main": "app.js",
-    "scripts": {
-        "start": "node app.js",
-        "build": "yarn install",
-        "dev": "nodemon app.js"
-    },
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-        "bcryptjs": "^2.4.3",
-        "body-parser": "^1.18.3",
-        "connect-flash": "^0.1.1",
-        "express": "^4.16.4",
-        "express-messages": "^1.0.1",
-        "express-session": "^1.15.6",
-        "express-validator": "^5.3.1",
-        "moment": "^2.24.0",
-        "mongoose": "^5.4.15",
-        "nodemon": "^1.18.10",
-        "passport": "^0.4.0",
-        "passport-local": "^1.0.0",
-        "pug": "^2.0.3",
-        "showdown": "1.9.0"
-    },
-    "engines": {
-        "yarn": "1.13.0"
-    },
-    "resolutions": {
-        "mem": "5.1.1"
-    }
+  "name": "newwebsite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "build": "yarn install",
+    "dev": "concurrently \"yarn run server\" \"yarn run client\"",
+    "server": "nodemon server.js",
+    "client": "cd client && yarn run start"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "concurrently": "^5.1.0",
+    "connect-flash": "^0.1.1",
+    "express": "^4.16.4",
+    "express-messages": "^1.0.1",
+    "express-session": "^1.15.6",
+    "express-validator": "^5.3.1",
+    "moment": "^2.24.0",
+    "mongoose": "^5.4.15",
+    "nodemon": "^1.18.10",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
+  },
+  "engines": {
+    "yarn": "1.22.0"
+  },
+  "resolutions": {
+    "mem": "5.1.1"
+  }
 }
