@@ -90,21 +90,26 @@ app.use("/search", search);
 app.use("/about", about);
 
 app.get("/", (req, res) => {
-    let promises = [];
-
-    promises.push(findLatest(Post));
-    promises.push(findLatest(Project));
-
-    Promise.all(promises)
-        .then(result => {
-            res.render("home", {
-                post: result[0],
-                project: result[1]
-            });
-        })
-        .catch(err => {
-            res.render("home");
+    Project.find({}, {}, {sort: {'date': -1} }, (err, projects) => {
+        res.render('project/listProjects', {
+            projects
         });
+    })
+    // let promises = [];
+
+    // promises.push(findLatest(Post));
+    // promises.push(findLatest(Project));
+
+    // Promise.all(promises)
+    //     .then(result => {
+    //         res.render("home", {
+    //             post: result[0],
+    //             project: result[1]
+    //         });
+    //     })
+    //     .catch(err => {
+    //         res.render("home");
+    //     });
 });
 
 const findLatest = Document => {

@@ -9,8 +9,8 @@ nav.navbar.navbar-light.navbar-expand-lg.justify-content-center.navigation-bar
                     a.nav-link(href='/blog/addpost') Add Post
                 li.nav-item
                     a.nav-link(href='/projects/addproject') Add Project
-            li.nav-item
-                a.nav-link(href='/blog') Blog
+            //- li.nav-item
+            //-     a.nav-link(href='/blog') Blog
             li.nav-item.dropdown
                 a#navbarDropdown.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
                     | Projects
@@ -26,9 +26,9 @@ nav.navbar.navbar-light.navbar-expand-lg.justify-content-center.navigation-bar
             form.form-inline(action='/search', method='GET')
                 input.form-control.form-control-md(type='search', style='width:140px;' placeholder='Search query', aria-label='Search', name='query', title='Enter a title, keyword or category to search for', alt='Enter a title, keyword or category to search for')
                 div.checkboxes
-                    label.navCheck(for="blogCheck", style="display:block;padding-left:15px;padding-right:15px;")
-                        input#blogCheck.form-check-input(type='checkbox', name="blog" checked)
-                        | Blog
+                    //- label.navCheck(for="blogCheck", style="display:block;padding-left:15px;padding-right:15px;")
+                    //-     input#blogCheck.form-check-input(type='checkbox', name="blog" checked)
+                    //-     | Blog
 
                     label.navCheck(for="projectCheck", style="display:block;padding-left:15px;padding-right:15px;")
                         input#projectCheck.form-check-input(type='checkbox', name="project" checked)
