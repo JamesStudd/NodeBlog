@@ -6,6 +6,8 @@ const passport = require("passport");
 const expressValidator = require("express-validator");
 const session = require("express-session");
 
+require('dotenv').config();
+
 const port = process.env.PORT || 5000;
 
 // Routes
