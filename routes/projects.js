@@ -16,6 +16,20 @@ router.get('/', (req, res) => {
     })
 });
 
+router.get('/all', (req, res) => {
+    Project.find({}, (err, projects) => {
+        if (err) {
+            res.status(500);
+            res.send({err});
+        }
+        else
+        {
+            res.status(200);
+            res.send(projects);
+        }
+    });
+})
+
 router.get('/addproject', ensureAuthenticated, (req, res) => {
     res.render('project/addNewProject');
 })

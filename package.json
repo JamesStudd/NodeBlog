@@ -5,8 +5,8 @@
     "main": "app.js",
     "scripts": {
         "start": "node app.js",
-        "build": "yarn install",
-        "dev": "nodemon app.js"
+        "build": "npm install",
+        "dev": "concurrently \"nodemon app.js\" \"cd client && yarn start\""
     },
     "author": "",
     "license": "ISC",
@@ -24,12 +24,12 @@
         "passport": "^0.4.0",
         "passport-local": "^1.0.0",
         "pug": "^2.0.3",
-        "showdown": "1.9.0"
-    },
-    "engines": {
-        "yarn": "1.13.0"
+        "showdown": "^1.9.1"
     },
     "resolutions": {
         "mem": "5.1.1"
+    },
+    "devDependencies": {
+        "concurrently": "^5.3.0"
     }
 }
