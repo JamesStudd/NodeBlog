@@ -1,15 +1,17 @@
-import React from 'react';
-import './App.css';
-import Projects from './components/projects';
+import React from "react";
+import "./App.css";
+import Projects from "./components/projects";
+import Header from "./components/Header";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <Projects/>
-      </header>
-    </div>
-  );
+	return (
+		<div className="App">
+			<header className="App-header">
+				<Header />
+			</header>
+			<Projects />
+		</div>
+	);
 }
 
 export default App;
