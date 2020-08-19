@@ -1,5 +1,6 @@
-import React from "react";
 import "./css/Header.scss";
+import React from "react";
+import HeaderCanvas from "./HeaderCanvas";
 
 class Header extends React.Component {
 	render() {
@@ -8,6 +9,7 @@ class Header extends React.Component {
 				<h1> {this.props.name} </h1>
 				<h2> {this.props.title} </h2>
 				<p> {this.props.description} </p>
+				<HeaderCanvas />
 			</div>
 		);
 	}

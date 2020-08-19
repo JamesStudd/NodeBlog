@@ -1,15 +1,25 @@
-@import './variables/colors';
+@import "./variables/sizes";
 
 .header {
-    background-color: $dark-blue;
-    display: flex;
-    flex-direction: column;
-    font-size: calc(10px + 2vmin);
-    padding: 10px 0px 10px 0px;
-    text-align: center;
-    
-    h1, h2, p {
-        margin: 10px;
-        color: white;
-    }
+	h1,
+	h2,
+	p {
+		position: absolute;
+		z-index: 2;
+		left: 50%;
+		top: $header-height / 2;
+		color: white;
+	}
+
+	h1 {
+		transform: translate(-50%, -$header-height / 2);
+	}
+
+	h2 {
+		transform: translate(-50%, -$header-height / 2.5);
+	}
+
+	p {
+		transform: translate(-50%, -$header-height / 5);
+	}
 }
