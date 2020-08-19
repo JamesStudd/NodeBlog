@@ -1,9 +1,11 @@
 import React from "react";
-import "./css/Project.css";
+import "./css/Project.scss";
+import { Parser as HtmlToReactParser } from "html-to-react";
 
 class Project extends React.Component {
 	constructor(props) {
 		super(props);
+		this.parser = new HtmlToReactParser();
 		this.state = {
 			clicked: false,
 		};
@@ -25,7 +27,7 @@ class Project extends React.Component {
 				{this.state.clicked && (
 					<p className="noselect">
 						{" "}
-						{this.props.project.longDescription}{" "}
+						{this.parser.parse(this.props.project.parsedHtml)}{" "}
 					</p>
 				)}
 			</div>
