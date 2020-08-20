@@ -1,8 +1,8 @@
 import React from "react";
-import "./../css/Project.scss";
+import "./../css/HighlightedProject.scss";
 import { Parser as HtmlToReactParser } from "html-to-react";
 
-class Project extends React.Component {
+class HighlightedProject extends React.Component {
 	constructor(props) {
 		super(props);
 		this.parser = new HtmlToReactParser();
@@ -10,14 +10,12 @@ class Project extends React.Component {
 
 	render() {
 		return (
-			<div>
-				<h2 className="noselect"> {this.props.project.title} </h2>
-				<div className="noselect">
-					{this.parser.parse(this.props.project.parsedHtml)}{" "}
-				</div>
+			<div id="content">
+				<h2> {this.props.project.title} </h2>
+				<div>{this.parser.parse(this.props.project.parsedHtml)} </div>
 			</div>
 		);
 	}
 }
 
-export default Project;
+export default HighlightedProject;

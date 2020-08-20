@@ -14,7 +14,16 @@ class Project extends React.Component {
 				onClick={() => {
 					this.props.click(this.props.project);
 				}}
-				className="project"
+				onPointerOver={() => {
+					console.log("pointer over");
+				}}
+				onPointerOut={() => {
+					console.log("pointer out");
+				}}
+				onPointerDown={() => {
+					console.log("pointer down");
+				}}
+				className="row project"
 			>
 				<h2 className="noselect"> {this.props.project.title} </h2>
 			</div>
