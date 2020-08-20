@@ -70,9 +70,8 @@ export default () => (
 			position={[15, 20, 5]}
 			penumbra={1}
 			castShadow
-			intensity={0.3}
+			intensity={0.5}
 		/>
-		<fog attach="white" args={["black", 2, 5]} />
 		<Controls />
 		<Plane />
 		<Sphere />

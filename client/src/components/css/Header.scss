@@ -1,25 +1,31 @@
 @import "./variables/sizes";
+@import "./variables/fonts";
 
 .header {
 	h1,
 	h2,
 	p {
+        font-family: $font-roboto;
 		position: absolute;
 		z-index: 2;
 		left: 50%;
 		top: $header-height / 2;
 		color: white;
+        pointer-events: none;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: black;
 	}
 
 	h1 {
-		transform: translate(-50%, -$header-height / 2);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 5em;
+		transform: translate(-50%, -$header-height / 2.4);
 	}
 
 	h2 {
-		transform: translate(-50%, -$header-height / 2.5);
-	}
-
-	p {
-		transform: translate(-50%, -$header-height / 5);
+        font-size: 2em;
+		transform: translate(-50%, -$header-height / 8.5);
 	}
 }

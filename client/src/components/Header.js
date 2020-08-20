@@ -8,7 +8,6 @@ class Header extends React.Component {
 			<div className="header">
 				<h1> {this.props.name} </h1>
 				<h2> {this.props.title} </h2>
-				<p> {this.props.description} </p>
 				<HeaderCanvas />
 			</div>
 		);
