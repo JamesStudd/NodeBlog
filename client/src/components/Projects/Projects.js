@@ -8,6 +8,23 @@ class Projects extends React.Component {
 		axios.get("/projects/all").then((res) => {
 			const data = res.data;
 			let projects = [];
+			let categories = [];
+			const priorities = ["high", "medium", "low"];
+
+			// Sort them
+			data.sort((a, b) => {
+				let aPrio = this.getPrio(a);
+				let bPrio = this.getPrio(b);
+				return priorities.indexOf(aPrio) >= priorities.indexOf(bPrio);
+			});
+
+			data.forEach((project) => {
+				project.categories.forEach((category) => {
+					if (categories.indexOf(category) === -1) {
+						categories.push(category);
+					}
+				});
+			});
 
 			for (
 				let i = 0;
@@ -22,26 +39,33 @@ class Projects extends React.Component {
 				);
 			}
 
-			for (let index = 0; index < data.length; index++) {
-				const element = data[index];
-				console.log(element.image);
-			}
-
 			this.setState(() => {
 				return {
 					projects,
+					categories,
 				};
 			});
 		});
+	}
+
+	getPrio(project) {
+		if (typeof project.priority === "object") {
+			return project.priority[0];
+		} else {
+			return project.priority;
+		}
 	}
 
 	render() {
 		return (
 			<div className="container">
 				{this.state &&
-					this.state.projects.map((projectGroup) => {
+					this.state.projects.map((projectGroup, index) => {
 						return (
-							<div className="row justify-content-md-center">
+							<div
+								key={"projectGroup" + index}
+								className="row justify-content-md-center"
+							>
 								{projectGroup.map((project) => {
 									return (
 										<div
@@ -50,6 +74,7 @@ class Projects extends React.Component {
 												this.props.columnSize +
 												" singleProject p-3"
 											}
+											key={project.title}
 										>
 											<Project project={project} />
 										</div>
