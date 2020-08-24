@@ -5,6 +5,12 @@ import Project from "./Project";
 
 class Projects extends React.Component {
 	componentDidMount() {
+		this.setState(() => {
+			return {
+				loading: true,
+			};
+		});
+
 		axios.get("/projects/all").then((res) => {
 			const data = res.data;
 			let projects = [];
@@ -13,9 +19,9 @@ class Projects extends React.Component {
 
 			// Sort them
 			data.sort((a, b) => {
-				let aPrio = this.getPrio(a);
-				let bPrio = this.getPrio(b);
-				return priorities.indexOf(aPrio) >= priorities.indexOf(bPrio);
+				let aIndex = priorities.indexOf(this.getPrio(a));
+				let bIndex = priorities.indexOf(this.getPrio(b));
+				return aIndex === bIndex ? a.date >= b.date : aIndex > bIndex;
 			});
 
 			data.forEach((project) => {
@@ -43,6 +49,7 @@ class Projects extends React.Component {
 				return {
 					projects,
 					categories,
+					loading: false,
 				};
 			});
 		});
@@ -59,7 +66,9 @@ class Projects extends React.Component {
 	render() {
 		return (
 			<div className="container">
+				{this.state && this.state.loading && <p>TODO BETTER LOADING</p>}
 				{this.state &&
+					this.state.projects &&
 					this.state.projects.map((projectGroup, index) => {
 						return (
 							<div
