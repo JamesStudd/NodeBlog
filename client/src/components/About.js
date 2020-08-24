@@ -4,7 +4,7 @@ import React from "react";
 class About extends React.Component {
 	render() {
 		return (
-			<div className="row justify-content-md-center">
+			<div className="row justify-content-md-center" id="aboutSection">
 				<div className="col-md-6">
 					<h1> {this.props.title} </h1>
 					<p> {this.props.description} </p>

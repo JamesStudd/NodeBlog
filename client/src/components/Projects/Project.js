@@ -37,7 +37,7 @@ class Project extends React.Component {
 				<div id="projectInfo">
 					<h2> {this.props.project.title} </h2>
 					<p> {this.props.project.shortDescription} </p>
-					<button type="button" class="btn btn-primary">
+					<button type="button" className="btn btn-primary">
 						View Project
 					</button>
 				</div>

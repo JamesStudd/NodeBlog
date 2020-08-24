@@ -65,7 +65,7 @@ class Projects extends React.Component {
 
 	render() {
 		return (
-			<div className="container">
+			<div className="container" id="projectsView">
 				{this.state && this.state.loading && <p>TODO BETTER LOADING</p>}
 				{this.state &&
 					this.state.projects &&
