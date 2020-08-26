@@ -2,6 +2,7 @@ import "./../css/Projects.scss";
 import React from "react";
 import axios from "axios";
 import Project from "./Project";
+import HighlightedProject from "./HighlightedProject";
 
 class Projects extends React.Component {
 	componentDidMount() {
@@ -12,6 +13,9 @@ class Projects extends React.Component {
 		});
 
 		axios.get("/projects/all").then((res) => {
+			this.setSelected = this.setSelected.bind(this);
+			this.clearSelected = this.clearSelected.bind(this);
+
 			const data = res.data;
 			let projects = [];
 			let categories = [];
@@ -47,11 +51,26 @@ class Projects extends React.Component {
 
 			this.setState(() => {
 				return {
+					originalProjects: projects,
+					highlightedProject: null,
 					projects,
 					categories,
 					loading: false,
 				};
 			});
+		});
+	}
+
+	setSelected(project) {
+		this.setState({
+			highlightedProject: project,
+		});
+		window.location.hash = "#highlightedProject";
+	}
+
+	clearSelected() {
+		this.setState({
+			highlightedProject: null,
 		});
 	}
 
@@ -67,6 +86,14 @@ class Projects extends React.Component {
 		return (
 			<div className="container" id="projectsView">
 				{this.state && this.state.loading && <p>TODO BETTER LOADING</p>}
+				{this.state &&
+					this.state.projects &&
+					this.state.highlightedProject && (
+						<HighlightedProject
+							project={this.state.highlightedProject}
+							clear={this.clearSelected}
+						/>
+					)}
 				{this.state &&
 					this.state.projects &&
 					this.state.projects.map((projectGroup, index) => {
@@ -85,7 +112,10 @@ class Projects extends React.Component {
 											}
 											key={project.title}
 										>
-											<Project project={project} />
+											<Project
+												project={project}
+												select={this.setSelected}
+											/>
 										</div>
 									);
 								})}

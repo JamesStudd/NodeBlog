@@ -1,0 +1,27 @@
+#highlightedProject {
+    width: 100%;
+    border: 1px solid black;
+
+    #closeButton {
+        float: right;
+    }
+
+    #projectInfo {
+        text-align: center;
+    }
+
+    #imageContainer {
+        text-align: center;
+        img {
+            width: 30vw;
+            height: auto;
+        }
+    }
+
+    #projectDesc {
+        margin-top: 2vh;
+        width: 60%;
+        translate: 30%;
+        text-align: center;
+    }
+}
