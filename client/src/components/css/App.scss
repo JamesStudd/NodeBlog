@@ -1,3 +1,6 @@
+@import './variables/colors';
+
 #appTop {
-    background-color: #525252;
+    overflow-x: hidden;
+    background-color: $dark-background;
 }

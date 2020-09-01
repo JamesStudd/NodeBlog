@@ -1,0 +1,8 @@
+@import './variables/colors';
+
+.navbar {
+    background-color: $dark-background;
+    li {
+       display: inline-block
+    }
+}

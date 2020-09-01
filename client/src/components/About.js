@@ -5,19 +5,41 @@ class About extends React.Component {
 	render() {
 		return (
 			<div className="row justify-content-md-center" id="aboutSection">
-				<div className="col-md-6">
-					<h1> {this.props.title} </h1>
-					<p> {this.props.description} </p>
+				<div className="col-lg-6 col-md-auto col-sm-auto col-xs-auto">
+					<h1> About </h1>
+					<hr />
+					<h2> Myself </h2>
+					<p>
+						{" "}
+						Hello, I am James Studd. I am a Unity developer
+						primarily, with Node/JS following closely by as a hobby
+						as well as various other languages whenever I can. I
+						have been programming since around 2015, starting in
+						University as part of a Computer Science course which I
+						completed with a First Class Honors in 2019. I like to
+						create any sort of project, from Unity games in game
+						jams, to websites (such as this one), Arduino
+						contraptions, or just mess around with new languages /
+						frameworks that I find interesting.{" "}
+					</p>
+					<hr />
+					<h2> This Website </h2>
+					<p>
+						{" "}
+						Every few months or so I come back to this website,
+						redesigning it (usually from scratch) using a completely
+						different technology. It started as a Jekyll (static
+						site generator) project where I could write blog posts
+						and project posts. But, I wanted more control over the
+						look and feel, so I redesigned it using Pug with an
+						Express back-end. The third (and current) iteration is
+						using the same back-end, but now using React as the
+						front-end, with a ThreeJS/P5.js Canvas as the header.
+					</p>
 				</div>
 			</div>
 		);
 	}
 }
-
-About.defaultProps = {
-	title: "About",
-	description:
-		"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel luctus ligula. Praesent felis augue, fermentum commodo varius ut, congue eu neque. Nullam eget justo ipsum. Suspendisse a vehicula nibh, vitae tincidunt nibh. Nulla vitae laoreet odio, non egestas purus. Nullam pulvinar neque et diam viverra pretium. In ut mollis velit, posuere aliquam augue. Pellentesque nulla nulla, ultricies non viverra et, dictum eget justo. Nam nisl risus, interdum ut mauris at, iaculis rhoncus sem. Suspendisse ut iaculis metus. Ut tempor eros quis tortor pharetra ornare. ",
-};
 
 export default About;

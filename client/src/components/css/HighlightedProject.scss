@@ -1,6 +1,13 @@
+@import './variables/colors';
+@import './variables/fonts';
+
 #highlightedProject {
+    margin-top: 10px;
     width: 100%;
     border: 1px solid black;
+    background-color: $light-background-accent;
+    color: white;
+    font-family: $font-roboto;
 
     #closeButton {
         float: right;

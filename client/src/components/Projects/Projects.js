@@ -38,7 +38,7 @@ class Projects extends React.Component {
 				});
 			});
 
-			let projectsPerRow = window.innerWidth > 1000 ? 3 : 2;
+			let projectsPerRow = window.innerWidth > 992 ? 3 : 2;
 
 			projects = this.sortProjectsIntoRows(data, projectsPerRow);
 
@@ -63,7 +63,7 @@ class Projects extends React.Component {
 	updatePredicate() {
 		if (!this.state || !this.state.originalData) return;
 
-		let projectsPerRow = window.innerWidth > 1000 ? 3 : 2;
+		let projectsPerRow = window.innerWidth > 992 ? 3 : 2;
 		this.setState((prevState) => {
 			return {
 				projects: this.sortProjectsIntoRows(
@@ -72,8 +72,6 @@ class Projects extends React.Component {
 				),
 			};
 		});
-
-		console.log(this.state);
 	}
 
 	sortProjectsIntoRows(data, projectsPerRow) {
@@ -90,6 +88,7 @@ class Projects extends React.Component {
 		this.setState({
 			highlightedProject: project,
 		});
+		window.location.hash = "";
 		window.location.hash = "#highlightedProject";
 	}
 
@@ -125,7 +124,7 @@ class Projects extends React.Component {
 						return (
 							<div
 								key={"projectGroup" + index}
-								className="row justify-content-md-center"
+								className="row justify-content-md-center rowOfProjects"
 							>
 								{projectGroup.map((project) => {
 									return (

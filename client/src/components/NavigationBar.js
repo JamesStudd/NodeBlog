@@ -4,7 +4,7 @@ import React from "react";
 class NavigationBar extends React.Component {
 	render() {
 		return (
-			<nav className="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
+			<nav className="navbar navbar-expand-sm sticky-top navbar-dark">
 				<div
 					className="collapse navbar-collapse justify-content-center"
 					id="navbarNav"

@@ -1,61 +1,74 @@
 @import './variables/colors';
-
-@import './variables/colors';
+@import './variables/fonts';
 
 .project {
     width: 100%;
     height: 100%;
     
+    
     #imageContainer {
         width: 100%;
         height: 100%;
-    }
-    
-    img {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover; 
 
-        -webkit-filter: blur(0); /* Safari 6.0 - 9.0 */
-        filter: brightness(100%) blur(0px);
-        transition: 1s;
-        transition-timing-function: linear;
-    }
-    
-    #projectInfo {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        
-        // FINE
-        text-align: center;
-        color: white;
-        opacity: 0;
+        .innerContent {
+            opacity: 0;
+            background-color: rgba(0, 0, 0, 0.85);
+            width: 100%;
+            height: 100%;
+            color: $offwhite;
 
-        animation: fadeOut ease 1s;
-        -webkit-animation: fadeOut ease 1s;
-        -moz-animation: fadeOut ease 1s;
-        -o-animation: fadeOut ease 1s;
-        -ms-animation: fadeOut ease 1s;
+            text-align: center;
+            font-family: $font-roboto;
+
+            @media only screen and (min-width: 1200px) {
+                padding: 7vh 0 7vh 0;
+            }
+
+            @media only screen and (min-width: 770px) {
+                padding: 3vh 0 3vh 0;
+            }
+
+            @media only screen and (max-width: 575px) {
+                padding: 3vh 0 3vh 0;
+            }
+
+            h2 {
+                font-weight: bold;
+                font-size: 2.2rem;
+                font-size: clamp(1.25rem, calc(5vw + 1rem), 2.2rem);
+                line-height: 1;
+                text-transform: uppercase;
+            }
+            p {
+                font-size: 1.2rem;
+            }
+        }
+
+        .innerContent-anim {
+            animation: fadeOut ease 1s;
+            -webkit-animation: fadeOut ease 1s;
+            -moz-animation: fadeOut ease 1s;
+            -o-animation: fadeOut ease 1s;
+            -ms-animation: fadeOut ease 1s;
+
+        }
     }
 }
 
 .project:hover {
     cursor:pointer;
-    img {
-        -webkit-filter: blur(5px); /* Safari 6.0 - 9.0 */
-        filter: brightness(50%) blur(5px);
-        transition: 1s;
-    }
-
-    #projectInfo {
-        animation: fadeIn ease 1s;
-        -webkit-animation: fadeIn ease 1s;
-        -moz-animation: fadeIn ease 1s;
-        -o-animation: fadeIn ease 1s;
-        -ms-animation: fadeIn ease 1s;
-        animation-fill-mode: forwards;
+    #imageContainer {
+        .innerContent {
+            animation: fadeIn ease 1s;
+            -webkit-animation: fadeIn ease 1s;
+            -moz-animation: fadeIn ease 1s;
+            -o-animation: fadeIn ease 1s;
+            -ms-animation: fadeIn ease 1s;
+            animation-fill-mode: forwards;
+        }
     }
 }
 

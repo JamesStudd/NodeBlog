@@ -14,7 +14,7 @@ class HighlightedProject extends React.Component {
 				<div id="closeButton">
 					<button
 						type="button"
-						class="btn btn-danger"
+						className="btn btn-danger"
 						onClick={this.props.clear}
 					>
 						X

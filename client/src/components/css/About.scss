@@ -1,3 +1,16 @@
-.aboutSection {
+@import './variables/colors';
+@import './variables/fonts';
+
+#aboutSection {
+    background-color: $light-background-accent;
     text-align: center;
+    margin-top: 20px;
+    box-shadow: 0px -5px 5px;
+    font-family: $font-roboto;
+    h1, h2 {
+        font-variant: small-caps;
+    }
+    h1, h2, p {
+        color: white;
+    }
 }
