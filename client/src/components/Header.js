@@ -5,9 +5,9 @@ import P5Test from "./HeaderCanvas/P5Test";
 import SuperShapes from "./HeaderCanvas/SuperShapes";
 
 const canvases = [
+	<SuperShapes height={500} />,
 	<HeaderCanvas />,
 	<P5Test height={500} />,
-	<SuperShapes height={500} />,
 ];
 
 class Header extends React.Component {

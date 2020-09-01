@@ -34,9 +34,6 @@ class Projects extends React.Component {
 				}
 			});
 
-			console.log("SORTED");
-			data.forEach((d) => console.log(d.priority));
-
 			data.forEach((project) => {
 				project.categories.forEach((category) => {
 					if (categories.indexOf(category) === -1) {
@@ -124,6 +121,7 @@ class Projects extends React.Component {
 							clear={this.clearSelected}
 						/>
 					)}
+
 				{this.state &&
 					this.state.projects &&
 					this.state.projects.map((projectGroup, index) => {

@@ -81,6 +81,8 @@ export default (props) => {
 	const draw = (p5) => {
 		p5.textSize(32);
 		p5.translate(window.innerWidth / 2, height / 2);
+		p5.rotate(Math.PI / 2);
+
 		m = map(Math.sin(osc), -1, 1, 0, 10);
 		osc += 0.01;
 		if (m <= 0.0001 && !changedRecently) {
@@ -91,6 +93,7 @@ export default (props) => {
 		p5.background(0);
 
 		p5.stroke(cols[0], cols[1], cols[2]);
+
 		changeColors();
 
 		let points = 300;
