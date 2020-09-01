@@ -88,8 +88,7 @@ class Projects extends React.Component {
 		this.setState({
 			highlightedProject: project,
 		});
-		window.location.hash = "";
-		window.location.hash = "#highlightedProject";
+		window.scrollTo(0, 300);
 	}
 
 	clearSelected() {

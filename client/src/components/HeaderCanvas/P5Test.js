@@ -24,14 +24,6 @@ class Circle {
 		this.x += this.speed * this.direction;
 		if (this.x >= window.innerWidth || this.x <= 0) this.direction *= -1;
 	}
-
-	RandomiseColor() {
-		this.color = [
-			Math.random() * 255,
-			Math.random() * 255,
-			Math.random() * 255,
-		];
-	}
 }
 
 export default (props) => {
@@ -56,6 +48,8 @@ export default (props) => {
 				)
 			);
 		}
+
+		mouseClicked();
 	};
 
 	const draw = (p5) => {

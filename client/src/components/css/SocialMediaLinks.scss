@@ -1,0 +1,23 @@
+@import './variables/colors';
+@import './variables/fonts';
+
+.social-media {
+    background-color: $light-background-accent;
+}
+
+.social-media-link {
+    height: 64px;
+    width: 64px;
+}
+
+.credit {
+    padding-top: 10px;
+    font-family: $font-roboto;
+    a {
+        color: white;
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+}

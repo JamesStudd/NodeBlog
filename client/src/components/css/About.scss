@@ -4,13 +4,14 @@
 #aboutSection {
     background-color: $light-background-accent;
     text-align: center;
+    padding-top: 20px;
     margin-top: 20px;
     box-shadow: 0px -5px 5px;
     font-family: $font-roboto;
     h1, h2 {
-        font-variant: small-caps;
-    }
-    h1, h2, p {
         color: white;
+    }
+    p {
+        color: #c3c3c3;
     }
 }

@@ -14,7 +14,7 @@ class Project extends React.Component {
 		return (
 			<div
 				className="project"
-				onClick={() => this.props.select(this.props.project)}
+				onClick={() => this.props.select(proj, this.props.projRef)}
 				onMouseOver={() => {
 					if (!this.state.addedClass) {
 						this.setState({

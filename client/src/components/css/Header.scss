@@ -9,8 +9,10 @@
             z-index: 2;
             left: 50%;
             top: $header-height / 2;
-            color: white;
             pointer-events: none;
+            
+            color: black;
+            -webkit-text-fill-color: white; /* Will override color (regardless of order) */
             -webkit-text-stroke-width: 1px;
             -webkit-text-stroke-color: black;
         }
@@ -27,5 +29,9 @@
             font-size: 2em;
             transform: translate(-50%, -$header-height / 8.5);
         }
-	}
+    }
+    .changeBtn {
+        position: absolute;
+        z-index: 3;
+    }
 }
