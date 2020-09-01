@@ -27,8 +27,15 @@ class Projects extends React.Component {
 			data.sort((a, b) => {
 				let aIndex = priorities.indexOf(this.getPrio(a));
 				let bIndex = priorities.indexOf(this.getPrio(b));
-				return aIndex === bIndex ? a.date >= b.date : aIndex > bIndex;
+				if (aIndex === bIndex) {
+					return a.date >= b.date ? 1 : -1;
+				} else {
+					return aIndex > bIndex ? 1 : -1;
+				}
 			});
+
+			console.log("SORTED");
+			data.forEach((d) => console.log(d.priority));
 
 			data.forEach((project) => {
 				project.categories.forEach((category) => {

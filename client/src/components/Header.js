@@ -13,22 +13,17 @@ const canvases = [
 class Header extends React.Component {
 	componentDidMount() {
 		this.getNewCanvas = this.getNewCanvas.bind(this);
-		this.randomNumber = this.randomNumber.bind(this);
 		this.setState({
-			selected: this.randomNumber(),
+			selected: 0,
 		});
 	}
 
 	getNewCanvas() {
-		let newIndex = this.randomNumber();
-		while (newIndex === this.state.selected) {
-			newIndex = this.randomNumber();
-		}
-		this.setState({ selected: newIndex });
-	}
-
-	randomNumber() {
-		return Math.floor(Math.random() * canvases.length);
+		this.setState((prevState) => {
+			return {
+				selected: (prevState.selected + 1) % canvases.length,
+			};
+		});
 	}
 
 	render() {
