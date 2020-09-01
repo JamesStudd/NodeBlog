@@ -12,10 +12,12 @@ class Projects extends React.Component {
 			};
 		});
 
-		axios.get("/projects/all").then((res) => {
-			this.setSelected = this.setSelected.bind(this);
-			this.clearSelected = this.clearSelected.bind(this);
+		this.setSelected = this.setSelected.bind(this);
+		this.clearSelected = this.clearSelected.bind(this);
+		this.sortProjectsIntoRows = this.sortProjectsIntoRows.bind(this);
+		this.updatePredicate = this.updatePredicate.bind(this);
 
+		axios.get("/projects/all").then((res) => {
 			const data = res.data;
 			let projects = [];
 			let categories = [];
@@ -36,29 +38,52 @@ class Projects extends React.Component {
 				});
 			});
 
-			for (
-				let i = 0;
-				i < data.length;
-				i = i + this.props.maxProjectsInRow
-			) {
-				projects.push(
-					data.slice(
-						i,
-						Math.min(data.length, i + this.props.maxProjectsInRow)
-					)
-				);
-			}
+			let projectsPerRow = window.innerWidth > 1000 ? 3 : 2;
+
+			projects = this.sortProjectsIntoRows(data, projectsPerRow);
 
 			this.setState(() => {
 				return {
-					originalProjects: projects,
+					originalData: data,
 					highlightedProject: null,
 					projects,
 					categories,
 					loading: false,
 				};
 			});
+
+			window.addEventListener("resize", this.updatePredicate);
 		});
+	}
+
+	componentWillUnmount() {
+		window.removeEventListener("resize", this.updatePredicate);
+	}
+
+	updatePredicate() {
+		if (!this.state || !this.state.originalData) return;
+
+		let projectsPerRow = window.innerWidth > 1000 ? 3 : 2;
+		this.setState((prevState) => {
+			return {
+				projects: this.sortProjectsIntoRows(
+					prevState.originalData,
+					projectsPerRow
+				),
+			};
+		});
+
+		console.log(this.state);
+	}
+
+	sortProjectsIntoRows(data, projectsPerRow) {
+		let projects = [];
+		for (let i = 0; i < data.length; i = i + projectsPerRow) {
+			projects.push(
+				data.slice(i, Math.min(data.length, i + projectsPerRow))
+			);
+		}
+		return projects;
 	}
 
 	setSelected(project) {
@@ -106,9 +131,7 @@ class Projects extends React.Component {
 									return (
 										<div
 											className={
-												"col-md-" +
-												this.props.columnSize +
-												" singleProject p-3"
+												"col-lg-4 col-md-6 col-sm-6 singleProject p-3"
 											}
 											key={project.title}
 										>
@@ -126,10 +149,5 @@ class Projects extends React.Component {
 		);
 	}
 }
-
-Projects.defaultProps = {
-	maxProjectsInRow: 3,
-	columnSize: 4,
-};
 
 export default Projects;

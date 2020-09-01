@@ -4,26 +4,11 @@ import "./../css/Project.scss";
 class Project extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			hovered: false,
-		};
 	}
 
 	render() {
 		return (
-			<div
-				className="project"
-				onMouseEnter={() =>
-					this.setState(() => {
-						return { hovered: true };
-					})
-				}
-				onMouseLeave={() =>
-					this.setState(() => {
-						return { hovered: false };
-					})
-				}
-			>
+			<div className="project">
 				<div id="imageContainer">
 					<img
 						src={this.props.project.image}
@@ -31,7 +16,7 @@ class Project extends React.Component {
 					></img>
 				</div>
 
-				<div id="projectInfo">
+				{/* <div id="projectInfo">
 					<h2> {this.props.project.title} </h2>
 					<p> {this.props.project.shortDescription} </p>
 					<button
@@ -41,7 +26,7 @@ class Project extends React.Component {
 					>
 						View Project
 					</button>
-				</div>
+				</div> */}
 			</div>
 		);
 	}

@@ -4,24 +4,24 @@ import React from "react";
 class NavigationBar extends React.Component {
 	render() {
 		return (
-			<nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
+			<nav className="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
 				<div
-					class="collapse navbar-collapse justify-content-center"
+					className="collapse navbar-collapse justify-content-center"
 					id="navbarNav"
 				>
-					<ul class="navbar-nav">
-						<li class="nav-item active">
-							<a class="nav-link" href="#appTop">
-								Home <span class="sr-only">(current)</span>
+					<ul className="navbar-nav">
+						<li className="nav-item active">
+							<a className="nav-link" href="#appTop">
+								Home <span className="sr-only">(current)</span>
 							</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#projectsView">
+						<li className="nav-item">
+							<a className="nav-link" href="#projectsView">
 								Projects
 							</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#aboutSection">
+						<li className="nav-item">
+							<a className="nav-link" href="#aboutSection">
 								About
 							</a>
 						</li>
