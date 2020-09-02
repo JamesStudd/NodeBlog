@@ -8,6 +8,10 @@
 .social-media-link {
     height: 64px;
     width: 64px;
+    @media only screen and (max-width: 350px) {
+        height: 48px;
+        width: 48px;
+    }
 }
 
 .credit {

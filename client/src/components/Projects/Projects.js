@@ -42,7 +42,9 @@ class Projects extends React.Component {
 				});
 			});
 
-			let projectsPerRow = window.innerWidth > 992 ? 3 : 2;
+			let projectsPerRow = 1;
+			if (window.innerWidth > 575) projectsPerRow = 2;
+			if (window.innerWidth > 992) projectsPerRow = 3;
 
 			projects = this.sortProjectsIntoRows(data, projectsPerRow);
 
@@ -67,7 +69,10 @@ class Projects extends React.Component {
 	updatePredicate() {
 		if (!this.state || !this.state.originalData) return;
 
-		let projectsPerRow = window.innerWidth > 992 ? 3 : 2;
+		let projectsPerRow = 1;
+		if (window.innerWidth > 575) projectsPerRow = 2;
+		if (window.innerWidth > 992) projectsPerRow = 3;
+
 		this.setState((prevState) => {
 			return {
 				projects: this.sortProjectsIntoRows(

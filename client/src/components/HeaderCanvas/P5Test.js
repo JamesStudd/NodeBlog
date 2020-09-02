@@ -28,15 +28,19 @@ class Circle {
 
 export default (props) => {
 	let height = props.height;
+	let smallerHeight = props.smallerHeight;
+	let currentHeight;
 	let circleColor = [255, 255, 255];
 
 	let circles = [];
 
 	const setup = (p5, canvasParentRef) => {
-		// use parent to render the canvas in this ref
-		// (without that p5 will render the canvas outside of your component)
 		let rect = canvasParentRef.getBoundingClientRect();
-		p5.createCanvas(rect.width, height).parent(canvasParentRef);
+
+		currentHeight = height;
+		if (rect.width < 550) currentHeight = smallerHeight;
+
+		p5.createCanvas(rect.width, currentHeight).parent(canvasParentRef);
 
 		for (let index = 0; index < 60; index++) {
 			circles.push(
@@ -66,7 +70,10 @@ export default (props) => {
 	};
 
 	const windowResized = (p5) => {
-		p5.resizeCanvas(window.innerWidth, height);
+		let width = window.innerWidth;
+		currentHeight = height;
+		if (width < 550) currentHeight = smallerHeight;
+		p5.resizeCanvas(window.innerWidth, currentHeight);
 	};
 
 	const mouseClicked = (p5) => {

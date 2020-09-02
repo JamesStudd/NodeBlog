@@ -3,6 +3,9 @@ import Sketch from "react-p5";
 
 export default (props) => {
 	let height = props.height;
+	let smallerHeight = props.smallerHeight;
+	let currentHeight;
+
 	let m = 1,
 		n1 = 1,
 		n2 = 1,
@@ -23,14 +26,17 @@ export default (props) => {
 	let osc = 0;
 	let changedRecently = false;
 
-	let cols = [0, 0, 0];
+	let cols = [30, 30, 30];
 	let incs = [1, 1, 1];
+	let dirs = [1, 1, 1];
 
 	const setup = (p5, canvasParentRef) => {
-		// use parent to render the canvas in this ref
-		// (without that p5 will render the canvas outside of your component)
 		rect = canvasParentRef.getBoundingClientRect();
-		p5.createCanvas(rect.width, height).parent(canvasParentRef);
+
+		currentHeight = height;
+		if (rect.width < 550) currentHeight = smallerHeight;
+
+		p5.createCanvas(rect.width, currentHeight).parent(canvasParentRef);
 		changeColorIncs();
 	};
 
@@ -67,21 +73,31 @@ export default (props) => {
 	};
 
 	const changeColorIncs = () => {
-		incs[0] = Math.random() * 1;
-		incs[1] = Math.random() * 1;
-		incs[2] = Math.random() * 1;
+		incs[0] = Math.random();
+		incs[1] = Math.random();
+		incs[2] = Math.random();
 	};
 
 	const changeColors = () => {
-		cols[0] = (cols[0] + incs[0]) % 255;
-		cols[1] = (cols[1] + incs[1]) % 255;
-		cols[2] = (cols[2] + incs[2]) % 255;
+		changeColor(0);
+		changeColor(1);
+		changeColor(2);
+	};
+
+	const changeColor = (index) => {
+		cols[index] = cols[index] + incs[index] * dirs[index];
+		if (cols[index] >= 255 || cols[index] <= 0) dirs[index] *= -1;
+	};
+
+	const getScale = () => {
+		return currentHeight === height ? 1 : 0.5;
 	};
 
 	const draw = (p5) => {
 		p5.textSize(32);
-		p5.translate(window.innerWidth / 2, height / 2);
+		p5.translate(window.innerWidth / 2, currentHeight / 2);
 		p5.rotate(Math.PI / 2);
+		p5.scale(getScale());
 
 		m = map(Math.sin(osc), -1, 1, 0, 10);
 		osc += 0.01;
@@ -92,11 +108,12 @@ export default (props) => {
 		}
 		p5.background(0);
 
+		p5.strokeWeight(4);
 		p5.stroke(cols[0], cols[1], cols[2]);
 
 		changeColors();
 
-		let points = 300;
+		let points = 200;
 		let size = 200;
 		let inc = (Math.PI * 2) / points;
 		p5.beginShape();
@@ -118,7 +135,10 @@ export default (props) => {
 	};
 
 	const windowResized = (p5) => {
-		p5.resizeCanvas(window.innerWidth, height);
+		let width = window.innerWidth;
+		currentHeight = height;
+		if (width < 550) currentHeight = smallerHeight;
+		p5.resizeCanvas(window.innerWidth, currentHeight);
 	};
 
 	const mouseClicked = (p5) => {

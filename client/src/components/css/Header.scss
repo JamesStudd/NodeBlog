@@ -6,9 +6,8 @@
         h1, h2, p {
             font-family: $font-roboto;
             position: absolute;
-            z-index: 2;
             left: 50%;
-            top: $header-height / 2;
+            z-index: 2;
             pointer-events: none;
             
             color: black;
@@ -22,16 +21,28 @@
             overflow: hidden;
             text-overflow: ellipsis;
             font-size: 5em;
-            transform: translate(-50%, -$header-height / 2.4);
+            transform: translate(-50%, 1.5em);
+
+            @media only screen and (max-width: 500px) {
+                font-size: 15vw;
+            }
         }
     
         h2 {
             font-size: 2em;
-            transform: translate(-50%, -$header-height / 8.5);
+            transform: translate(-50%, 7em);
+            
+            @media only screen and (max-width: 500px) {
+                font-size: 8vw;
+                transform: translate(-50%, 5em);
+            }
         }
     }
     .changeBtn {
         position: absolute;
         z-index: 3;
+    }
+    .canvasView {
+      
     }
 }

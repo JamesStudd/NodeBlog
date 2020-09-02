@@ -4,9 +4,49 @@ import "./../css/Project.scss";
 class Project extends React.Component {
 	constructor(props) {
 		super(props);
+		this.getClassName = this.getClassName.bind(this);
+		this.handleClickOutside = this.handleClickOutside.bind(this);
+		this.isTouchDevice = this.isTouchDevice.bind(this);
+		this.mobileSelectorRef = React.createRef();
 		this.state = {
 			addedClass: false,
+			mobileSelected: false,
 		};
+	}
+
+	componentDidMount() {
+		document.addEventListener("mousedown", this.handleClickOutside);
+	}
+
+	componentWillUnmount() {
+		document.removeEventListener("mousedown", this.handleClickOutside);
+	}
+
+	isTouchDevice() {
+		return !!(
+			("ontouchstart" in window || navigator.maxTouchPoints) // works on most browsers
+		); // works on IE10/11 and Surface
+	}
+
+	/**
+	 * Alert if clicked on outside of element
+	 */
+	handleClickOutside(event) {
+		if (
+			this.mobileSelectorRef &&
+			!this.mobileSelectorRef.current.contains(event.target) &&
+			this.state.mobileSelected
+		) {
+			this.setState({ mobileSelected: false });
+		}
+	}
+
+	getClassName() {
+		let ret = "innerContent";
+		if (this.state.addedClass) ret += " innerContent-anim";
+		if (this.state.mobileSelected && this.isTouchDevice())
+			ret += " mobileSelected";
+		return ret;
 	}
 
 	render() {
@@ -14,7 +54,13 @@ class Project extends React.Component {
 		return (
 			<div
 				className="project"
-				onClick={() => this.props.select(proj, this.props.projRef)}
+				onClick={() => {
+					if (window.innerWidth < 575 && this.isTouchDevice()) {
+						this.setState({ mobileSelected: true });
+					} else {
+						this.props.select(proj, this.props.projRef);
+					}
+				}}
 				onMouseOver={() => {
 					if (!this.state.addedClass) {
 						this.setState({
@@ -28,11 +74,8 @@ class Project extends React.Component {
 					style={{ backgroundImage: `url(${proj.image})` }}
 				>
 					<div
-						className={
-							this.state.addedClass
-								? "innerContent innerContent-anim"
-								: "innerContent"
-						}
+						ref={this.mobileSelectorRef}
+						className={this.getClassName()}
 					>
 						<h2> {this.props.project.title} </h2>
 						<p> {this.props.project.shortDescription} </p>
@@ -40,9 +83,15 @@ class Project extends React.Component {
 						<button
 							type="button"
 							className="btn btn-primary"
-							onClick={() =>
-								this.props.select(this.props.project)
-							}
+							onClick={() => {
+								if (
+									!this.isTouchDevice() ||
+									(this.isTouchDevice() &&
+										this.state.mobileSelected)
+								) {
+									this.props.select(this.props.project);
+								}
+							}}
 						>
 							View Project
 						</button>

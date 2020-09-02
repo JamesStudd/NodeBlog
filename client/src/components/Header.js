@@ -1,13 +1,11 @@
 import "./css/Header.scss";
 import React from "react";
-import HeaderCanvas from "./HeaderCanvas/HeaderCubeCanvas";
 import P5Test from "./HeaderCanvas/P5Test";
 import SuperShapes from "./HeaderCanvas/SuperShapes";
 
 const canvases = [
-	<SuperShapes height={500} />,
-	<HeaderCanvas />,
-	<P5Test height={500} />,
+	<SuperShapes height={500} smallerHeight={300} />,
+	<P5Test height={500} smallerHeight={300} />,
 ];
 
 class Header extends React.Component {
@@ -42,7 +40,9 @@ class Header extends React.Component {
 					<h1> James Studd </h1>
 					<h2> Portfolio </h2>
 				</div>
-				{this.state && canvases[this.state.selected]}
+				<div className="canvasView">
+					{this.state && canvases[this.state.selected]}
+				</div>
 			</div>
 		);
 	}
