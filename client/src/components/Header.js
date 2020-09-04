@@ -2,8 +2,10 @@ import "./css/Header.scss";
 import React from "react";
 import P5Test from "./HeaderCanvas/P5Test";
 import SuperShapes from "./HeaderCanvas/SuperShapes";
+import MouseFollow from "./HeaderCanvas/MouseFollow";
 
 const canvases = [
+	<MouseFollow height={500} smallerHeight={300} />,
 	<SuperShapes height={500} smallerHeight={300} />,
 	<P5Test height={500} smallerHeight={300} />,
 ];
