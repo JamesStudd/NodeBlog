@@ -56,7 +56,10 @@ export default (props) => {
 		mouseClicked(p5);
 
 		currentHeight = height;
-		if (rect.width < 550) currentHeight = smallerHeight;
+		if (rect.width < 550) {
+			currentHeight = smallerHeight;
+			amountOfCircles = 30;
+		}
 
 		p5.createCanvas(rect.width, currentHeight).parent(canvasParentRef);
 
@@ -77,7 +80,10 @@ export default (props) => {
 		p5.strokeWeight(2);
 
 		let speed = map(p5.mouseX, 0, window.innerWidth, 0, 5);
-		let distance = map(p5.mouseY, 0, currentHeight, 1, currentHeight / 3);
+		let distance = Math.min(
+			map(p5.mouseY, 0, currentHeight, 1, currentHeight / 3),
+			currentHeight / 4
+		);
 
 		for (let i = 0; i < amountOfCircles; i++) {
 			circles[i].Update(window.innerWidth, currentHeight, speed);
@@ -90,7 +96,34 @@ export default (props) => {
 	const windowResized = (p5) => {
 		let width = window.innerWidth;
 		currentHeight = height;
-		if (width < 550) currentHeight = smallerHeight;
+		if (width < 550) {
+			amountOfCircles = 20;
+			currentHeight = smallerHeight;
+			circles = [];
+			for (let i = 0; i < amountOfCircles; i++) {
+				circles.push(
+					new Circle(
+						Math.random() * width,
+						Math.random() * currentHeight,
+						p5
+					)
+				);
+			}
+		} else {
+			if (amountOfCircles === 20) {
+				amountOfCircles = 100;
+				circles = [];
+				for (let i = 0; i < amountOfCircles; i++) {
+					circles.push(
+						new Circle(
+							Math.random() * width,
+							Math.random() * currentHeight,
+							p5
+						)
+					);
+				}
+			}
+		}
 		p5.resizeCanvas(window.innerWidth, currentHeight);
 	};
 

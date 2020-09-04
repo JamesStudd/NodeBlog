@@ -3,9 +3,11 @@ import React from "react";
 import P5Test from "./HeaderCanvas/P5Test";
 import SuperShapes from "./HeaderCanvas/SuperShapes";
 import MouseFollow from "./HeaderCanvas/MouseFollow";
+import Spiral from "./HeaderCanvas/Spiral";
 
 const canvases = [
 	<MouseFollow height={500} smallerHeight={300} />,
+	<Spiral height={500} smallerHeight={300} />,
 	<SuperShapes height={500} smallerHeight={300} />,
 	<P5Test height={500} smallerHeight={300} />,
 ];
