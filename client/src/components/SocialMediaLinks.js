@@ -8,7 +8,7 @@ class SocialMediaLinks extends React.Component {
 				<hr />
 				<div className="row justify-content-center">
 					<div className="col-auto">
-						<a href="mailto:james.studd@live.co.uk">
+						<a href="mailto:james.studd -at- live.co.uk">
 							<img
 								className="social-media-link"
 								src={"icons/icon_mail.png"}
