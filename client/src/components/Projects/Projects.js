@@ -28,7 +28,7 @@ class Projects extends React.Component {
 				let aIndex = priorities.indexOf(this.getPrio(a));
 				let bIndex = priorities.indexOf(this.getPrio(b));
 				if (aIndex === bIndex) {
-					return a.date >= b.date ? 1 : -1;
+					return a.date >= b.date ? -1 : 1;
 				} else {
 					return aIndex > bIndex ? 1 : -1;
 				}
