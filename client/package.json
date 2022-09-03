@@ -6,7 +6,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bootstrap": "^4.5.2",
     "html-to-react": "^1.4.3",
     "node-sass": "^4.14.1",
@@ -18,7 +18,7 @@
     "react-spring": "^8.0.27",
     "react-three-fiber": "^4.2.20",
     "dot-prop": ">=4.2.1",
-    "three": "^0.119.1"
+    "three": "^0.125.0"
   },
   "scripts": {
     "start": "react-scripts start",
