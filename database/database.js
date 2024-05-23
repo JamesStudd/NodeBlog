@@ -1,3 +1,4 @@
+require('dotenv').config()
 const mongoose = require("mongoose");
 
 mongoose.connect(
@@ -11,5 +12,9 @@ mongoose.connect(
 		}
 	}
 );
+
+mongoose.connection.on('open', function (ref) {
+    console.log('Connected to mongo server.');
+})
 
 module.exports = mongoose;

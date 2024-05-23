@@ -1,5 +1,5 @@
 const express = require('express');
-const { check, validationResult } = require('express-validator/check');
+const { check, validationResult } = require('express-validator');
 const router = express.Router();
 const showdown = require('showdown');
 const converter = new showdown.Converter();

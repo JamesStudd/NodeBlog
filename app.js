@@ -46,27 +46,6 @@ app.use(function (req, res, next) {
 	next();
 });
 
-// Express validator middleware
-app.use(
-	expressValidator({
-		errorFormatter: function (param, msg, value) {
-			var namespace = param.split("."),
-				root = namespace.shift(),
-				formParam = root;
-
-			while (namespace.length) {
-				formParam += "[" + namespace.shift() + "]";
-			}
-
-			return {
-				param: formParam,
-				msg: msg,
-				value: value,
-			};
-		},
-	})
-);
-
 // Express passport middleware
 require("./config/passport")(passport);
 app.use(passport.initialize());

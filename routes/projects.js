@@ -1,5 +1,5 @@
 const express = require('express');
-const { check, validationResult } = require('express-validator/check');
+const { check, validationResult } = require('express-validator');
 const router = express.Router();
 const showdown = require('showdown');
 const converter = new showdown.Converter();
@@ -21,9 +21,9 @@ router.get('/all', (req, res) => {
         if (err) {
             res.status(500);
             res.send({err});
+            console.error(err);
         }
-        else
-        {
+        else {
             res.status(200);
             res.send(projects);
         }
