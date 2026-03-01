@@ -5,6 +5,9 @@ const showdown = require('showdown');
 const converter = new showdown.Converter();
 const ensureAuthenticated = require('./../auth/verify');
 const convert = require('./../utils/convert');
+const path = require('path');
+
+const projectsPath = require(path.join(__dirname, './data/projects.json'));
 
 const Project = require('./../database/models/projectModel');
 
@@ -17,17 +20,14 @@ router.get('/', (req, res) => {
 });
 
 router.get('/all', (req, res) => {
-    Project.find({}, (err, projects) => {
-        if (err) {
-            res.status(500);
-            res.send({err});
-            console.error(err);
-        }
-        else {
-            res.status(200);
-            res.send(projects);
-        }
-    });
+    try {
+        res.status(200);
+        res.send(projectsPath);
+    }
+    catch (err) {
+        console.error(err);
+        res.status(500).send({ err });
+    }
 })
 
 router.get('/addproject', ensureAuthenticated, (req, res) => {

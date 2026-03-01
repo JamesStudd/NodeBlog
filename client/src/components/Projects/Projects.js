@@ -25,12 +25,12 @@ class Projects extends React.Component {
 
 			// Sort them
 			data.sort((a, b) => {
-				let aIndex = priorities.indexOf(this.getPrio(a));
-				let bIndex = priorities.indexOf(this.getPrio(b));
+				let aIndex = this.getPrio(a);
+				let bIndex = this.getPrio(b);
 				if (aIndex === bIndex) {
 					return a.date >= b.date ? -1 : 1;
 				} else {
-					return aIndex > bIndex ? 1 : -1;
+					return aIndex > bIndex ? -1 : 1;
 				}
 			});
 
