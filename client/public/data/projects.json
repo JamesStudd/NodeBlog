@@ -16,7 +16,7 @@
         "longDescription": "# Packet Pass\r\nFor a playable demo of the game, [click here!](https://jamesstudd.github.io/PacketPass/)\r\n\r\nGlobal Game Jam was the second game jam that my friend [Jake Lyons](https://github.com/JakeMLyons) created. The theme for this game jam was '*Transmission*'. For a full rundown and postmortem of the game, [check out the blog post](https://jamesstudd.com/blog/PostmortemPacketPassGlobalGameJam) I made following the gamejam.",
         "image": "images/packetpass.gif",
         "link": "PacketPassGlobalGameJam",
-        "parsedHtml": "<h1 id=\"packetpass\">Packet Pass</h1>\n<p>For a playable demo of the game, <a href=\"https://jamesstudd.github.io/PacketPass/\">click here!</a></p>\n<p>Global Game Jam was the second game jam that my friend <a href=\"https://github.com/JakeMLyons\">Jake Lyons</a> and I created. The theme for this game jam was '<em>Transmission</em>'.</p>",
+        "parsedHtml": "<p>For a playable demo of the game, <a href=\"https://jamesstudd.github.io/PacketPass/\">click here!</a></p>\n<p>Global Game Jam was the second game jam that my friend <a href=\"https://github.com/JakeMLyons\">Jake Lyons</a> and I created. The theme for this game jam was '<em>Transmission</em>'.</p>",
         "__v": 0
     },
     {
@@ -181,10 +181,10 @@
         "title": "Fury of Dracula",
         "date": "2020-07-14T00:00:00.000Z",
         "shortDescription": "Digital adaptation of the board game Fury of Dracula",
-        "longDescription": "Fury of Dracula is a game that I have been working on as part of Nomad Games. My role has been a Unity Developer so far, and I have worked on various features. The game is set to release in October 2020.\r\n\r\nFury of Dracula is a 1v4 board game whereby 4 hunters try and find Dracula by moving around the map and finding clues about his whereabouts. They can then enter combat with him upon finding him and enter a rock-paper-scissors style combat of matching the right symbol. It is meant as a 5 player game but can be played with less.\r\n\r\nI have been responsible for the Pathfinding, the LiveOps features (user profile, stats, challenges, news), general game architecture and functionality, exploring new tech possibilties (such as moving from coroutines to async, trying to use ECS/DOTS to improve performance). \r\n\r\nFury of Dracula will be coming out on Steam - https://store.steampowered.com/app/958530/Fury_of_Dracula_Digital_Edition/",
+        "longDescription": "Fury of Dracula is a game that I have been working on as part of Nomad Games. My role has been a Unity Developer so far, and I have worked on various features. The game is set to release in October 2020.\r\n\r\nFury of Dracula is a 1v4 board game whereby 4 hunters try and find Dracula by moving around the map and finding clues about his whereabouts. They can then enter combat with him upon finding him and enter a rock-paper-scissors style combat of matching the right symbol. It is meant as a 5 player game but can be played with less.\r\n\r\nI have been responsible for the Pathfinding, the LiveOps features (user profile, stats, challenges, news), general game architecture and functionality, exploring new tech possibilties (such as moving from coroutines to async, trying to use ECS/DOTS to improve performance). \r\n\r\nFury of Dracula will be Steam - https://store.steampowered.com/app/958530/Fury_of_Dracula_Digital_Edition/",
         "image": "images/fod.png",
         "link": "FuryofDracula",
-        "parsedHtml": "<p>Fury of Dracula is a game that I have been working on as part of Nomad Games. My role has been a Unity Developer so far, and I have worked on various features. The game is set to release in October 2020.</p>\n<p>Fury of Dracula is a 1v4 board game whereby 4 hunters try and find Dracula by moving around the map and finding clues about his whereabouts. They can then enter combat with him upon finding him and enter a rock-paper-scissors style combat of matching the right symbol. It is meant as a 5 player game but can be played with less.</p>\n<p>I have been responsible for the Pathfinding, the LiveOps features (user profile, stats, challenges, news), general game architecture and functionality, exploring new tech possibilties (such as moving from coroutines to async, trying to use ECS/DOTS to improve performance). </p>\n<p>Fury of Dracula will be <a href=\"https://store.steampowered.com/app/958530/Fury_of_Dracula_Digital_Edition/\">coming out on Steam</a></p>",
+        "parsedHtml": "<p>Fury of Dracula is a game that I worked on as part of my first professional Developer role at Nomad Games. My role as a Unity Developer involved working on various core features as well as meta features (such as their LiveOps integration with PlayFab). The game released in in October 2020, and still has a strong dedicated audience.</p>\n<p>Fury of Dracula is a 1v4 board game whereby 4 hunters try and find Dracula by moving around the map and finding clues about his whereabouts. They can then enter combat with him upon finding him and enter a rock-paper-scissors style combat of matching the right symbol. It is meant as a 5 player game but can be played with less.</p>\n<p>I was responsible for the Pathfinding, the LiveOps features (user profile, stats, challenges, news), general game architecture and functionality, exploring new tech possibilties (such as moving from coroutines to async, trying to use ECS/DOTS to improve performance). </p>\n<p>Fury of Dracula is available on <a href=\"https://store.steampowered.com/app/958530/Fury_of_Dracula_Digital_Edition/\">Steam</a></p>",
         "__v": 0
     },
     {
@@ -247,16 +247,52 @@
             "professional"
         ],
         "priority": [
-            5
+            10
         ],
         "_id": "68bacd4550e18ec2db16202b",
         "title": "Merge Mansion",
         "date": "2022-06-30T00:00:00.000Z",
         "shortDescription": "Merge2 mobile game",
         "longDescription": "Merge Mansion is a game I worked on as a part of Metacore Games, located in Berlin & Helsinki. There, I worked on the Event Team.\n\nAvailable to play at https://play.google.com/store/apps/details?id=com.everywear.game5&hl=en and https://apps.apple.com/us/app/merge-mansion-mystery-puzzles/id1484442152",
-        "image": "images/mm.jpg",
+        "image": "images/mm_new.png",
         "link": "MergeMansion",
-        "parsedHtml": "<p>Merge Mansion is a game I worked on as a part of Metacore Games, located in Berlin &amp; Helsinki. There, I worked on the Events Team, making LiveOps events.<br /><br />Available to play on <a href=\"https://play.google.com/store/apps/details?id=com.everywear.game5&amp;hl=en\">Android</a> and <a href=\"https://apps.apple.com/us/app/merge-mansion-mystery-puzzles/id1484442152\">ios</a></p>",
+        "parsedHtml": "<p>Merge Mansion is a Merge-2 mobile game from Metacore. I joined in August 2025 into a new team focused on creating Live Ops events for the game. This involved working inside a small sub-team of 6 people alongside the whole Merge Mansion team of 150.</p> <p> As a developer, I was responsible for seeing a feature from prototype all the way to release. Mainly involving \"frontend\" work. Although Merge Mansion is an always-online game with server authentication, so a lot of work was also around working with that aspect.<br /><br />Available to play on <a href=\"https://play.google.com/store/apps/details?id=com.everywear.game5&amp;hl=en\">Android</a> and <a href=\"https://apps.apple.com/us/app/merge-mansion-mystery-puzzles/id1484442152\">ios</a></p>",
+        "__v": 0
+    },
+    {
+        "categories": [
+            "unity",
+            "professional"
+        ],
+        "priority": [
+            7
+        ],
+        "_id": "2342r728ef2ufh",
+        "title": "WOLF - XO",
+        "date": "2026-01-01T00:00:00.000Z",
+        "shortDescription": "Networked XO Game",
+        "longDescription": "",
+        "image": "images/xo.gif",
+        "link": "WolfXO",
+        "parsedHtml": "<p>XO was a contract job I did for WOLF Qanawat. This is a social app aimed at the MENA market, whereby the users can also play games. </p><p>The games themselves are fully networked and offer a number of meta features (challenges, achievements, experience towards your player profile).</p><p>The XO project was a connect-3 game, where the users picked a tile on the grid. If they connected 3, then they dealt damage to the opponent until either player lost. Or until the final round where they had to get through a number of attacks. </p><p>The team was 2 developers (including myself), so I was responsible for a lot of the project. Including how to render the tiles and achieve some effects when a tile is placed.</p><p><a href=\"https://company.wolf.live/\">https://company.wolf.live/</a> is the company, the game can be played at <a href=\"https://app.wolf.live/gaming/6\">https://app.wolf.live/gaming/6</a></p>",
+        "__v": 0
+    },
+    {
+        "categories": [
+            "unity",
+            "professional"
+        ],
+        "priority": [
+            8
+        ],
+        "_id": "2342r728ef2ufh",
+        "title": "WOLF - Lonoo",
+        "date": "2026-01-01T00:00:00.000Z",
+        "shortDescription": "Networked Lonoo Game",
+        "longDescription": "",
+        "image": "images/lonoo.gif",
+        "link": "WolfLonoo",
+        "parsedHtml": "<p>Lonoo was a contract job I did for WOLF Qanawat. This is a social app aimed at the MENA market, whereby the users can also play games. </p><p>The games themselves are fully networked and offer a number of meta features (challenges, achievements, experience towards your player profile). </p><p>The Lonoo project was a card game inspired by Uno for 2-4 players, whereby players needed to play a card that matched the colour or the number of the previous card. They could also play special cards that altered the game: Pick up 2/4, Skip Go, Reverse Play, Change Colour. We also had special Power Cards that affected more, such as: Swap 2 (everyone swaps 2 cards), Mirror Card (mirror the last card and replace a card in your hand), Draw Multiplier (multiplies your next Draw2/4 card by X)</p><p>The team was 2 developers (including myself), so I was responsible for a lot of the project. Including: Prototyping the initial game, making the core game loop, handling the player hand and re-ordering cards, implementing power cards, and a number of other features.</p><p><a href=\"https://company.wolf.live/\">https://company.wolf.live/</a> is the company, the game can be played at <a href=\"https://app.wolf.live/gaming/5\">https://app.wolf.live/gaming/5</a></p>",
         "__v": 0
     }
 ]

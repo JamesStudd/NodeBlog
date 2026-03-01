@@ -6,7 +6,7 @@
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 110vh;
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(8px);
   display: flex;
@@ -16,19 +16,25 @@
   pointer-events: auto;
 }
 
+.projectTitle {
+    padding-bottom: 30px;
+    text-align: center;
+}
+
 .highlightedPopup {
-  background: #fff;
+  background: linear-gradient(135deg, #6b6bad, #482061, #491850); // lighter purple gradient
   padding: 2rem;
   border-radius: 1rem;
   max-width: 900px;
   width: 90%;
   max-height: 90vh;
   overflow-y: auto;
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  box-shadow: 0 0 80px rgb(0, 0, 0);
   position: relative;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  color: #fff;
 }
 
 .highlightedPopup .closeButton {
@@ -41,11 +47,35 @@
   margin-bottom: 0.5rem;
 }
 
-.imageContainer img {
-  width: 100%;
-  height: auto;
-  border-radius: 0.5rem;
+.imageContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
   margin-bottom: 1rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 90%;
+    border-radius: 1rem;
+    background: radial-gradient(circle, rgba(138, 43, 226, 0.3), transparent 70%);
+    filter: blur(20px);
+    z-index: 0;
+  }
+
+  img {
+    max-height: 400px;
+    width: auto;
+    border-radius: 0.5rem;
+    display: block;
+    z-index: 1; // make sure image sits above the glow
+  }
+
+  padding-bottom: 30px;
 }
 
 .projectDesc {

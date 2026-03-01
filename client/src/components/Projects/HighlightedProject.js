@@ -10,6 +10,7 @@ class HighlightedProject extends React.Component {
     this.overlayRef = React.createRef();
     this.popupRef = React.createRef();
     this.handleClose = this.handleClose.bind(this);
+    this.handleOverlayClick = this.handleOverlayClick.bind(this);
   }
 
   componentDidMount() {
@@ -35,13 +36,28 @@ class HighlightedProject extends React.Component {
     tl.to(overlay, { autoAlpha: 0, duration: 0.3, ease: "power2.in" }, 0);
   }
 
+  handleOverlayClick(e) {
+    // Only close if the click was on the overlay, not the popup
+    if (e.target === this.overlayRef.current) {
+      this.handleClose();
+    }
+  }
+
   render() {
     const { project } = this.props;
     if (!project) return null;
 
     return (
-      <div ref={this.overlayRef} className="highlightedOverlay">
-        <div ref={this.popupRef} className="highlightedPopup">
+      <div
+        ref={this.overlayRef}
+        className="highlightedOverlay"
+        onClick={this.handleOverlayClick}
+      >
+        <div
+          ref={this.popupRef}
+          className="highlightedPopup"
+          onClick={(e) => e.stopPropagation()} // prevent clicks inside popup from bubbling
+        >
           <div className="closeButton">
             <button type="button" className="btn btn-danger" onClick={this.handleClose}>
               X
@@ -49,8 +65,7 @@ class HighlightedProject extends React.Component {
           </div>
 
           <div className="popupContent">
-            <h2>{project.title}</h2>
-            <p>{project.shortDescription}</p>
+            <h2 className="projectTitle">{project.title}</h2>
 
             <div className="imageContainer">
               <img src={project.image} alt={project.title} />
