@@ -108,7 +108,6 @@ sortProjectsIntoRows(data, projectsPerRow) {
 		this.setState({
 			highlightedProject: project,
 		});
-		window.scrollTo(0, 300);
 	}
 
 	clearSelected() {
