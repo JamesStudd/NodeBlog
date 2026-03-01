@@ -17,48 +17,49 @@ class Projects extends React.Component {
 		this.sortProjectsIntoRows = this.sortProjectsIntoRows.bind(this);
 		this.updatePredicate = this.updatePredicate.bind(this);
 
-		axios.get("/projects/all").then((res) => {
-			const data = res.data;
-			let projects = [];
-			let categories = [];
-			const priorities = ["high", "medium", "low"];
+		fetch("/data/projects.json")
+  			.then(res => res.json())
+  			.then(data => {
+				let projects = [];
+				let categories = [];
+				const priorities = ["high", "medium", "low"];
 
-			// Sort them
-			data.sort((a, b) => {
-				let aIndex = this.getPrio(a);
-				let bIndex = this.getPrio(b);
-				if (aIndex === bIndex) {
-					return a.date >= b.date ? -1 : 1;
-				} else {
-					return aIndex > bIndex ? -1 : 1;
-				}
-			});
-
-			data.forEach((project) => {
-				project.categories.forEach((category) => {
-					if (categories.indexOf(category) === -1) {
-						categories.push(category);
+				// Sort them
+				data.sort((a, b) => {
+					let aIndex = this.getPrio(a);
+					let bIndex = this.getPrio(b);
+					if (aIndex === bIndex) {
+						return a.date >= b.date ? -1 : 1;
+					} else {
+						return aIndex > bIndex ? -1 : 1;
 					}
 				});
-			});
 
-			let projectsPerRow = 1;
-			if (window.innerWidth > 575) projectsPerRow = 2;
-			if (window.innerWidth > 992) projectsPerRow = 3;
+				data.forEach((project) => {
+					project.categories.forEach((category) => {
+						if (categories.indexOf(category) === -1) {
+							categories.push(category);
+						}
+					});
+				});
 
-			projects = this.sortProjectsIntoRows(data, projectsPerRow);
+				let projectsPerRow = 1;
+				if (window.innerWidth > 575) projectsPerRow = 2;
+				if (window.innerWidth > 992) projectsPerRow = 3;
 
-			this.setState(() => {
-				return {
-					originalData: data,
-					highlightedProject: null,
-					projects,
-					categories,
-					loading: false,
-				};
-			});
+				projects = this.sortProjectsIntoRows(data, projectsPerRow);
 
-			window.addEventListener("resize", this.updatePredicate);
+				this.setState(() => {
+					return {
+						originalData: data,
+						highlightedProject: null,
+						projects,
+						categories,
+						loading: false,
+					};
+				});
+
+				window.addEventListener("resize", this.updatePredicate);
 		});
 	}
 

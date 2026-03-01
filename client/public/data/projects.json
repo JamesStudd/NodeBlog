@@ -1,0 +1,262 @@
+[
+    {
+        "categories": [
+            "gamejam",
+            "c#",
+            "unity",
+            "hobby"
+        ],
+        "priority": [
+            0
+        ],
+        "_id": "5c77704fbcb389001682fb7f",
+        "title": "Packet Pass - Global Game Jam",
+        "date": "2018-01-25T00:00:00.000Z",
+        "shortDescription": "Our entry for Global Game Jam",
+        "longDescription": "# Packet Pass\r\nFor a playable demo of the game, [click here!](https://jamesstudd.github.io/PacketPass/)\r\n\r\nGlobal Game Jam was the second game jam that my friend [Jake Lyons](https://github.com/JakeMLyons) created. The theme for this game jam was '*Transmission*'. For a full rundown and postmortem of the game, [check out the blog post](https://jamesstudd.com/blog/PostmortemPacketPassGlobalGameJam) I made following the gamejam.",
+        "image": "images/packetpass.gif",
+        "link": "PacketPassGlobalGameJam",
+        "parsedHtml": "<h1 id=\"packetpass\">Packet Pass</h1>\n<p>For a playable demo of the game, <a href=\"https://jamesstudd.github.io/PacketPass/\">click here!</a></p>\n<p>Global Game Jam was the second game jam that my friend <a href=\"https://github.com/JakeMLyons\">Jake Lyons</a> and I created. The theme for this game jam was '<em>Transmission</em>'.</p>",
+        "__v": 0
+    },
+    {
+        "categories": [
+            "javascript",
+            "node",
+            "hobby"
+        ],
+        "priority": [
+            0
+        ],
+        "_id": "5dbb417e3879aa7f0939e219",
+        "title": "Tetraphobia Data Aggregation and Rest API",
+        "date": "2019-10-31T00:00:00.000Z",
+        "shortDescription": "Data aggregation for the Indie game 'Tetraphobia'",
+        "longDescription": "This is a project made for an Indie Game - [Tetraphobia](https://www.tetraphobia.net/) to track in-game stats, such as runtime, accuracy, win ratio, etc. It was also made to track an in-game currency that was used to vote on which concept art to be released as part of a Kickstarter.  \r\nMore info on this project can be found on the [blog post I did about it](http://www.jamesstudd.com/blog/AggregatingStatsandMakingaRESTAPItousewithUnity).",
+        "image": "images/tetra.png",
+        "link": "TetraphobiaDataAggregationandRestAPI",
+        "parsedHtml": "<p>This is a project made for an Indie Game - <a href=\"https://www.tetraphobia.net/\">Tetraphobia</a> to track in-game stats, such as runtime, accuracy, win ratio, etc. It was also made to track an in-game currency that was used to vote on which concept art to be released as part of a Kickstarter.<br /></p>",
+        "__v": 0
+    },
+    {
+        "categories": [
+            "javascript",
+            "node",
+            "hobby"
+        ],
+        "priority": [
+            0
+        ],
+        "_id": "5cb3f0640a15d60016e984bc",
+        "title": "Would You Rather - MERN",
+        "date": "2019-04-15T00:00:00.000Z",
+        "shortDescription": "Would You Rather app using the MERN stack",
+        "longDescription": "This is a simple Would You Rather app using the MERN (MongoDB, Express, React, NodeJS) stack made predominantly for practice. Each 'option' is stored as a single entity so that 'questions' (2 options) can be dynamically produced. Each option is given a 'scenario' such as 'Look like a fish' and a theme 'physical' to ensure that the dynamically produced questions are of 2 equal options. The website can be found ![here](https://wyrmern.herokuapp.com/)",
+        "image": "images/wyr.png",
+        "link": "WouldYouRatherMERN",
+        "parsedHtml": "<p>This is a simple Would You Rather app using the MERN (MongoDB, Express, React, NodeJS) stack made predominantly for practice. Each 'option' is stored as a single entity so that 'questions' (2 options) can be dynamically produced. Each option is given a 'scenario' such as 'Look like a fish' and a theme 'physical' to ensure that the dynamically produced questions are of 2 equal options. The website can be found <a href='https://wyrmern.herokuapp.com/'>here</a></p>",
+        "__v": 0
+    },
+    {
+        "categories": [
+            "unity",
+            "professional"
+        ],
+        "priority": [
+            2
+        ],
+        "_id": "62bddbb0c0507c19b3969088",
+        "title": "Idle Restaurant Tycoon",
+        "date": "2022-06-30T00:00:00.000Z",
+        "shortDescription": "Mobile game about becoming a restaurant tycoon",
+        "longDescription": "Idle Restaurant Tycoon (IRT) is a mobile game I worked on as part of Kolibri Games. My role was a Junior Unity Developer, where I worked closely with a small team of other developers, artists, game design (GD), product manager (PM) and QA.\n\nIRT is based around the idea of becoming a restaurant tycoon. The goal is to build up your restaurant, slowly upgrading and gathering more money. You can then move onto the next restaurant which ultimately allows for even more progression. There are a number of LiveOps features in the game, including event restaurants, a food festival (where the player has to guess the correct chest), and player customization.\n\nI was responsible for working closely with GD and Art to bring mockups to life. As well as creating critical game systems and LiveOps functionality.\n\nThis was all done in Unity and was released on iOS and Android.\n\nAvailable to play here https://play.google.com/store/apps/details?id=com.kolibrigames.idlerestauranttycoon",
+        "image": "images/irt.png",
+        "link": "IdleRestaurantTycoon",
+        "parsedHtml": "<p>Idle Restaurant Tycoon (IRT) is a mobile game I worked on as part of Kolibri Games. My role was a Junior Unity Developer, where I worked closely with a small team of other developers, artists, game design (GD), product manager (PM) and QA.</p>\n\n<p>IRT is based around the idea of becoming a restaurant tycoon. The goal is to build up your restaurant, slowly upgrading and gathering more money. You can then move onto the next restaurant which ultimately allows for even more progression. There are a number of LiveOps features in the game, including event restaurants, a food festival (where the player has to guess the correct chest), and player customization.</p>\n\n<p>I was responsible for working closely with GD and Art to bring mockups to life. As well as creating critical game systems and LiveOps functionality.</p>\n\n<p>This was all done in Unity and was released on iOS and Android.</p>\n\n<p><a href=\"https://play.google.com/store/apps/details?id=com.kolibrigames.idlerestauranttycoon\">Available to play here</a>",
+        "__v": 0
+    },
+    {
+        "categories": [
+            "gamejam",
+            "hobby",
+            "c#",
+            "unity"
+        ],
+        "priority": [
+            0
+        ],
+        "_id": "5c776e44bcb389001682fb7b",
+        "title": "Sushi Secret - Ludum Dare 40",
+        "date": "2017-12-05T00:00:00.000Z",
+        "shortDescription": "Our entry for Ludum Dare 40",
+        "longDescription": "# Sushi Secret\r\nFor a playable demo of the game, [click here!](https://jamesstudd.github.io/SushiSecret/)  \r\n\r\nSushi Secret was the first game that my friend [Jake Lyons](https://github.com/JakeMLyons) have 'released'. We made it as a part of Ludum Dare 40 with the theme of '*the more you have the worse it is*'. For a full rundown of the game, as well as the ratings it achieved, checkout our [Ludum Dare post](https://ldjam.com/events/ludum-dare/40/sushi-secret).\r\n\r\nFor a post mortem blog post, click [here](https://jamesstudd.com/blog/PostmortemSushiSecretLudumDare40)",
+        "image": "images/sushi.gif",
+        "link": "SushiSecretLudumDare40",
+        "parsedHtml": "<h1 id=\"sushisecret\">Sushi Secret</h1>\n<p>For a playable demo of the game, <a href=\"https://jamesstudd.github.io/SushiSecret/\">click here!</a>  </p>\n<p>Sushi Secret was the first game that my friend <a href=\"https://github.com/JakeMLyons\">Jake Lyons</a> have 'released'. We made it as a part of Ludum Dare 40 with the theme of '<em>the more you have the worse it is</em>'. For a full rundown of the game, as well as the ratings it achieved, checkout our <a href=\"https://ldjam.com/events/ludum-dare/40/sushi-secret\">Ludum Dare post</a>.</p>\n<p>",
+        "__v": 0
+    },
+    {
+        "categories": [
+            "arduino",
+            "python",
+            "hobby"
+        ],
+        "priority": [
+            0
+        ],
+        "_id": "5c802e97d3aded0016d68f63",
+        "title": "Runescape Anti XP-Waster",
+        "date": "2019-03-06T00:00:00.000Z",
+        "shortDescription": "Never waste XP on Runescape again!",
+        "longDescription": "This was a really simple, pretty useless, but fun project I decided to do.  \r\n\r\nRunescape consists of a lot of \"afk-able\" skills, standing in one spot whilst not having to input any new commands. However, in fishing, the \"spot\" changes every so often, meaning your character needs to move to the new spot.  \r\n\r\nOne client \"RuneLite\" gives you notifications when you have stopped fishing, as well as constantly displaying in the top left \"NOT Fishing\" or \"Fishing\". Using Python I was able to grab this info and then send it over serial to my arduino and then turn on LEDs and move a servo motor accordingly. I later realised I should have just used RuneLite's API to get \"whether I am fishing or not\", but using Python and OpenCV was fun.  This bot only ever reads from the screen, never actually inputting commands to the game window, since that would be bannable.  \r\n\r\nI posted this on the 2007scape subreddit, as well as on YouTube. [Check out the video here!](https://www.youtube.com/watch?v=4-uIbw1jroI)",
+        "image": "images/runescape.gif",
+        "link": "RunescapeAntiXPWaster",
+        "parsedHtml": "<p>This was a really simple, pretty useless, but fun project I decided to do.  </p>\n<p>Runescape consists of a lot of \"afk-able\" skills, standing in one spot whilst not having to input any new commands. However, in fishing, the \"spot\" changes every so often, meaning your character needs to move to the new spot.  </p>\n<p>One client \"RuneLite\" gives you notifications when you have stopped fishing, as well as constantly displaying in the top left \"NOT Fishing\" or \"Fishing\". Using Python I was able to grab this info and then send it over serial to my arduino and then turn on LEDs and move a servo motor accordingly. I later realised I should have just used RuneLite's API to get \"whether I am fishing or not\", but using Python and OpenCV was fun.  This bot only ever reads from the screen, never actually inputting commands to the game window, since that would be bannable.  </p>\n<p>I posted this on the 2007scape subreddit, as well as on YouTube. <a href=\"https://www.youtube.com/watch?v=4-uIbw1jroI\">Check out the video here!</a></p>",
+        "__v": 0
+    },
+    {
+        "categories": [
+            "arduino",
+            "c",
+            "hobby"
+        ],
+        "priority": [
+            0
+        ],
+        "_id": "5c7770ddbcb389001682fb81",
+        "title": "Arduino/Elegoo Game",
+        "date": "2019-01-27T00:00:00.000Z",
+        "shortDescription": "Just a small Elegoo 'game'",
+        "longDescription": "# Arduino Game!\r\n\r\nJust a small side project using an Elegoo, breadboard, LCD display, button, a 7-segment display and a whole lot of wires!   \r\n[Check out the video of it in action here (sorry the video has bad contrast)](https://www.youtube.com/watch?v=-Xt9ixg88MI&feature=youtu.be)  \r\n[Check out the postmortem here](https://jamesstudd.com/blog/PlayingwithElegooArduino)",
+        "image": "images/arduino.jpeg",
+        "link": "ArduinoElegooGame",
+        "parsedHtml": "<h1 id=\"arduinogame\">Arduino Game!</h1>\n<p>Just a small side project using an Elegoo, breadboard, LCD display, button, a 7-segment display and a whole lot of wires!<br />\n<a href=\"https://www.youtube.com/watch?v=-Xt9ixg88MI&feature=youtu.be\">Check out the video of it in action here (sorry the video has bad contrast)</a><br />\n</p>",
+        "__v": 0
+    },
+    {
+        "categories": [
+            "javascript",
+            "hobby"
+        ],
+        "priority": [
+            0
+        ],
+        "_id": "5c776edfbcb389001682fb7c",
+        "title": "Audio Synthesizer",
+        "date": "2018-01-25T00:00:00.000Z",
+        "shortDescription": "Very small audio synthesizer made using the p5.js audio library",
+        "longDescription": "# Audio Synthesizer\r\n\r\nThe Audio Synthesizer came about after discovering processing.org, then stumbling upon p5.js. The audio library was super fun to just mess around with, and there was an element of instant gratifcation from having a key on the keyboard produce a configurable sound.\r\n\r\nThe project also taught me more about how notes are constructed, how the ADSR envelope, octave, wave type, attack/release level all affect how a note is played.\r\n\r\nSuper fun project that I will hopefully come back and do more on in the future.\r\n\r\nTo play with this project, [click here](https://jamesstudd.github.io/AudioSynthesizer/)",
+        "image": "images/audio.gif",
+        "link": "AudioSynthesizer",
+        "parsedHtml": "<h1 id=\"audiosynthesizer\">Audio Synthesizer</h1>\n<p>The Audio Synthesizer came about after discovering processing.org, then stumbling upon p5.js. The audio library was super fun to just mess around with, and there was an element of instant gratifcation from having a key on the keyboard produce a configurable sound.</p>\n<p>The project also taught me more about how notes are constructed, how the ADSR envelope, octave, wave type, attack/release level all affect how a note is played.</p>\n<p>Super fun project that I will hopefully come back and do more on in the future.</p>\n<p>To play with this project, <a href=\"https://jamesstudd.github.io/AudioSynthesizer/\">click here</a></p>",
+        "__v": 0
+    },
+    {
+        "categories": [
+            "unity",
+            "professional"
+        ],
+        "priority": [
+            3
+        ],
+        "_id": "62bddbc2c0507c19b3969089",
+        "title": "Idle Taxi Tycoon",
+        "date": "2022-07-30T00:00:00.000Z",
+        "shortDescription": "Mobile game about upgrading taxi stations",
+        "longDescription": "Idle Taxi Tycoon (ITT) is a mobile game I worked on as part of Kolibri Games. My role was a Junior Unity Developer, where I worked closely with a small team of other developers, artists, game design (GD), product manager (PM) and QA.\n\nITT is based around the idea of running multiple taxi stations in various cities and upgrading each of them. ITT has a number of collectable characters that the player can find in chests and assign them to taxis and watch them drive around the city. The better the driver, the more money the player gets.\n\nI was responsible for conception, prototyping, initial project setup and ongoing development. I worked with a number of SDKs to integrate them all into ITT. This was the same team behind IRT so we had some good team cohesion, again I worked close with the other departments to create functionality based on mockups or documentation.\n\nThis was all done in Unity and was released on iOS and Android.\n\nAvailable to play here https://play.google.com/store/apps/details?id=com.fastpoodlegames.idletaxitycoon",
+        "image": "images/itt.png",
+        "link": "IdleTaxiTycoon",
+        "parsedHtml": "<p>Idle Taxi Tycoon (ITT) is a mobile game I worked on as part of Kolibri Games. My role was a Junior Unity Developer, where I worked closely with a small team of other developers, artists, game design (GD), product manager (PM) and QA.</p>\n\n<p>ITT is based around the idea of running multiple taxi stations in various cities and upgrading each of them. ITT has a number of collectable characters that the player can find in chests and assign them to taxis and watch them drive around the city. The better the driver, the more money the player gets.</p>\n\n<p>I was responsible for conception, prototyping, initial project setup and ongoing development. I worked with a number of SDKs to integrate them all into ITT. This was the same team behind IRT so we had some good team cohesion, again I worked close with the other departments to create functionality based on mockups or documentation.</p>\n\n<p>This was all done in Unity and was released on iOS and Android.</p>\n\n<p><a href=\"https://play.google.com/store/apps/details?id=com.fastpoodlegames.idletaxitycoon\">Available to play here</a></p>",
+        "__v": 0
+    },
+    {
+        "categories": [
+            "unity",
+            "professional"
+        ],
+        "priority": [
+            1
+        ],
+        "_id": "5f0dc58c3aaf6f7a55b20e36",
+        "title": "Fury of Dracula",
+        "date": "2020-07-14T00:00:00.000Z",
+        "shortDescription": "Digital adaptation of the board game Fury of Dracula",
+        "longDescription": "Fury of Dracula is a game that I have been working on as part of Nomad Games. My role has been a Unity Developer so far, and I have worked on various features. The game is set to release in October 2020.\r\n\r\nFury of Dracula is a 1v4 board game whereby 4 hunters try and find Dracula by moving around the map and finding clues about his whereabouts. They can then enter combat with him upon finding him and enter a rock-paper-scissors style combat of matching the right symbol. It is meant as a 5 player game but can be played with less.\r\n\r\nI have been responsible for the Pathfinding, the LiveOps features (user profile, stats, challenges, news), general game architecture and functionality, exploring new tech possibilties (such as moving from coroutines to async, trying to use ECS/DOTS to improve performance). \r\n\r\nFury of Dracula will be coming out on Steam - https://store.steampowered.com/app/958530/Fury_of_Dracula_Digital_Edition/",
+        "image": "images/fod.png",
+        "link": "FuryofDracula",
+        "parsedHtml": "<p>Fury of Dracula is a game that I have been working on as part of Nomad Games. My role has been a Unity Developer so far, and I have worked on various features. The game is set to release in October 2020.</p>\n<p>Fury of Dracula is a 1v4 board game whereby 4 hunters try and find Dracula by moving around the map and finding clues about his whereabouts. They can then enter combat with him upon finding him and enter a rock-paper-scissors style combat of matching the right symbol. It is meant as a 5 player game but can be played with less.</p>\n<p>I have been responsible for the Pathfinding, the LiveOps features (user profile, stats, challenges, news), general game architecture and functionality, exploring new tech possibilties (such as moving from coroutines to async, trying to use ECS/DOTS to improve performance). </p>\n<p>Fury of Dracula will be <a href=\"https://store.steampowered.com/app/958530/Fury_of_Dracula_Digital_Edition/\">coming out on Steam</a></p>",
+        "__v": 0
+    },
+    {
+        "categories": [
+            "arduino",
+            "c",
+            "hobby"
+        ],
+        "priority": [
+            0
+        ],
+        "_id": "5c77708ebcb389001682fb80",
+        "title": "Arduino/Elegoo Game Two",
+        "date": "2019-02-10T00:00:00.000Z",
+        "shortDescription": "A better Elegoo game",
+        "longDescription": "# Arduino Game!\r\n\r\nSmall side project utilizing an OLED screen and a joystick module. Collision detection between bullets and an evercoming horde of enemies. Programmer art included, free of charge.   \r\n[Check out the video of it in action here](https://www.youtube.com/watch?v=zfpl04F5mww&feature=youtu.be)  \r\n[Check out the postmortem here](https://jamesstudd.com/blog/ArduinoOLEDJoystickAnotherGame)",
+        "image": "images/arduino2.jpeg",
+        "link": "ArduinoElegooGameTwo",
+        "parsedHtml": "<h1 id=\"arduinogame\">Arduino Game!</h1>\n<p>Small side project utilizing an OLED screen and a joystick module. Collision detection between bullets and an evercoming horde of enemies. Programmer art included, free of charge.<br />\n<a href=\"https://www.youtube.com/watch?v=zfpl04F5mww&feature=youtu.be\">Check out the video of it in action here</a><br />\n</p>",
+        "__v": 0
+    },
+    {
+        "categories": [
+            "javascript"
+        ],
+        "priority": [
+            0
+        ],
+        "_id": "601b125e49ce36af1e9d24c0",
+        "title": "Gridtone",
+        "date": "2021-02-03T00:00:00.000Z",
+        "shortDescription": "Audio synthesizer using p5, Tone and pentatonic scales",
+        "longDescription": "",
+        "image": "images/gridtone.png",
+        "link": "Gridtone",
+        "parsedHtml": "<h1 id=\"gridtone\">Gridtone</h1> <p>Gridtone is an audio synthesizer based on an old flash game &quot;Musical Squares&quot;. It uses the p5.js library for visuals and interaction, then the Tone.js library for audio. I was most interested in how to make the grid <strong>always</strong> sound nice regardless of how it&#39;s configured. Using the pentatonic scales is a great way to achieve this, with plenty of resources online about the power of the pentatonic, including a great video by <a href=\"https://www.youtube.com/watch?v=ne6tB2KiZuk\">Bobby McFerrin</a>. It&#39;s a great way to get some looped relaxing sounds :)  </p> <p>The project is quite vanilla in terms of architecture, using vanilla html, css and javascript (with the modules method of importing scripts). If I were to start the project again I would like to use React just to make it cleaner and easier to add additional features in the future.  </p> <p>The project is online <a href=\"https://jamesstudd.github.io/MusicalSquaresRemake/\">here</a>.</p>",
+        "__v": 0
+    },
+    {
+        "categories": [
+            "unity",
+            "professional"
+        ],
+        "priority": [
+            4
+        ],
+        "_id": "679254424ea6bdb2f1c5986e",
+        "title": "Junes Journey",
+        "date": "2022-06-30T00:00:00.000Z",
+        "shortDescription": "Hidden object mobile game",
+        "longDescription": "June's Journey is a mobile game I worked on as part of Wooga. My role was a Frontend Developer, where I worked within Unity to bring new features into the game. June's Journey is a hidden object game with a strong focus on narrative and on island decoration. Alongside the main game is a number of LiveOps events, such as \"Secrets\" which I was heavily involved in.\n\n Available to play here https://play.google.com/store/apps/details?id=net.wooga.junes_journey_hidden_object_mystery_game&hl=en",
+        "image": "images/jj.jpg",
+        "link": "JunesJourney",
+        "parsedHtml": "<p>June's Journey is a mobile game I worked on as part of Wooga. My role was a Frontend Developer, where I worked within Unity to bring new features into the game. June's Journey is a hidden object game with a strong focus on narrative and on island decoration. Alongside the main game is a number of LiveOps events, such as &quot;Secrets&quot; which I was heavily involved in.</p>\n\n<p><a href=\"https://play.google.com/store/apps/details?id=net.wooga.junes_journey_hidden_object_mystery_game\">Available to play here</a></p>",
+        "__v": 0
+    },
+    {
+        "categories": [
+            "unity",
+            "professional"
+        ],
+        "priority": [
+            5
+        ],
+        "_id": "68bacd4550e18ec2db16202b",
+        "title": "Merge Mansion",
+        "date": "2022-06-30T00:00:00.000Z",
+        "shortDescription": "Merge2 mobile game",
+        "longDescription": "Merge Mansion is a game I worked on as a part of Metacore Games, located in Berlin & Helsinki. There, I worked on the Event Team.\n\nAvailable to play at https://play.google.com/store/apps/details?id=com.everywear.game5&hl=en and https://apps.apple.com/us/app/merge-mansion-mystery-puzzles/id1484442152",
+        "image": "images/mm.jpg",
+        "link": "MergeMansion",
+        "parsedHtml": "<p>Merge Mansion is a game I worked on as a part of Metacore Games, located in Berlin &amp; Helsinki. There, I worked on the Events Team, making LiveOps events.<br /><br />Available to play on <a href=\"https://play.google.com/store/apps/details?id=com.everywear.game5&amp;hl=en\">Android</a> and <a href=\"https://apps.apple.com/us/app/merge-mansion-mystery-puzzles/id1484442152\">ios</a></p>",
+        "__v": 0
+    }
+]
