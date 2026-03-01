@@ -1,53 +1,28 @@
 import "./css/Header.scss";
 import React from "react";
-import P5Test from "./HeaderCanvas/P5Test";
-import SuperShapes from "./HeaderCanvas/SuperShapes";
-import MouseFollow from "./HeaderCanvas/MouseFollow";
-import Spiral from "./HeaderCanvas/Spiral";
-
-const canvases = [
-	<MouseFollow height={500} smallerHeight={300} />,
-	<Spiral height={500} smallerHeight={300} />,
-	<SuperShapes height={500} smallerHeight={300} />,
-	<P5Test height={500} smallerHeight={300} />,
-];
+import BlurText from "./reactbits/BlurText";
 
 class Header extends React.Component {
-	componentDidMount() {
-		this.getNewCanvas = this.getNewCanvas.bind(this);
-		this.setState({
-			selected: 0,
-		});
-	}
-
-	getNewCanvas() {
-		this.setState((prevState) => {
-			return {
-				selected: (prevState.selected + 1) % canvases.length,
-			};
-		});
-	}
-
 	render() {
 		return (
 			<div className="header">
-				<div className="changeBtn">
-					<button
-						type="button"
-						className="btn btn-link"
-						onClick={this.getNewCanvas}
-					>
-						Change Canvas
-					</button>
-				</div>
-				<div className="info">
-					<h1> James Studd </h1>
-					<h2> Portfolio </h2>
-				</div>
-				<div className="canvasView">
-					{this.state && canvases[this.state.selected]}
-				</div>
+				<BlurText
+					text="James Studd"
+					delay={50}
+					animateBy="letters"
+					direction="top"
+					className="text-2xl mb-8 headerTitle"
+				/>
+
+				<BlurText
+					text="Portfolio"
+					delay={200}
+					animateBy="letters"
+					direction="top"
+					className="text-2xl mb-8 headerDesc"
+				/>
 			</div>
+		
 		);
 	}
 }

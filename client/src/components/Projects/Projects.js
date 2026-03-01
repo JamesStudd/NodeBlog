@@ -1,6 +1,5 @@
 import "./../css/Projects.scss";
 import React from "react";
-import axios from "axios";
 import Project from "./Project";
 import HighlightedProject from "./HighlightedProject";
 
@@ -9,6 +8,7 @@ class Projects extends React.Component {
 		this.setState(() => {
 			return {
 				loading: true,
+				projectsPerRow: 1 // default
 			};
 		});
 
@@ -18,11 +18,10 @@ class Projects extends React.Component {
 		this.updatePredicate = this.updatePredicate.bind(this);
 
 		fetch("/data/projects.json")
-  			.then(res => res.json())
-  			.then(data => {
+			.then(res => res.json())
+			.then(data => {
 				let projects = [];
 				let categories = [];
-				const priorities = ["high", "medium", "low"];
 
 				// Sort them
 				data.sort((a, b) => {
@@ -56,11 +55,12 @@ class Projects extends React.Component {
 						projects,
 						categories,
 						loading: false,
+						projectsPerRow: projectsPerRow
 					};
 				});
 
 				window.addEventListener("resize", this.updatePredicate);
-		});
+			});
 	}
 
 	componentWillUnmount() {
@@ -84,15 +84,25 @@ class Projects extends React.Component {
 		});
 	}
 
-	sortProjectsIntoRows(data, projectsPerRow) {
-		let projects = [];
-		for (let i = 0; i < data.length; i = i + projectsPerRow) {
-			projects.push(
-				data.slice(i, Math.min(data.length, i + projectsPerRow))
-			);
-		}
-		return projects;
-	}
+sortProjectsIntoRows(data, projectsPerRow) {
+    let projects = [];
+    let runningIndex = 0; // global index across all projects
+
+    for (let i = 0; i < data.length; i += projectsPerRow) {
+        let row = data.slice(i, i + projectsPerRow);
+		
+        // Assign fadeDelay to each project in the row
+        row.forEach((project) => {
+            project.fadeDelay = runningIndex * 200; // adjust 200ms as needed
+            runningIndex++;
+        });
+
+        projects.push(row);
+    }
+	
+
+    return projects;
+}
 
 	setSelected(project) {
 		this.setState({
@@ -118,7 +128,7 @@ class Projects extends React.Component {
 	render() {
 		return (
 			<div className="container" id="projectsView">
-				{this.state && this.state.loading && <p>TODO BETTER LOADING</p>}
+				{this.state && this.state.loading && <p>Loading...</p>}
 				{this.state &&
 					this.state.projects &&
 					this.state.highlightedProject && (
@@ -130,7 +140,7 @@ class Projects extends React.Component {
 
 				{this.state &&
 					this.state.projects &&
-					this.state.projects.map((projectGroup, index) => {
+					this.state.projects.map((projectGroup, index) => {		
 						return (
 							<div
 								key={"projectGroup" + index}
@@ -147,6 +157,7 @@ class Projects extends React.Component {
 											<Project
 												project={project}
 												select={this.setSelected}
+												fadeDelay={project.fadeDelay}
 											/>
 										</div>
 									);

@@ -1,5 +1,6 @@
 import React from "react";
 import "./../css/Project.scss";
+import FadeContent from './../reactbits/FadeContent'
 
 class Project extends React.Component {
 	constructor(props) {
@@ -52,6 +53,7 @@ class Project extends React.Component {
 	render() {
 		const proj = this.props.project;
 		return (
+			<FadeContent blur={true} duration={2000} delay={this.props.fadeDelay} easing="ease-out" initialOpacity={0}>
 			<div
 				className="project"
 				onClick={() => {
@@ -98,6 +100,7 @@ class Project extends React.Component {
 					</div>
 				</div>
 			</div>
+			</FadeContent>
 		);
 	}
 }
